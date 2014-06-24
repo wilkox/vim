@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+
+use Modern::Perl 2014;
+use autodie;
+$|++;

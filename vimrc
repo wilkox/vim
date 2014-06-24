@@ -34,6 +34,15 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Perl skeleton
 au BufNewFile *.pl 0r ~/.vim/perl.skel
 
+"" Tab completion
+"" Using supertab plugin
+" Enable omnicompletion
+set omnifunc=syntaxcomplete#Complete
+" Set supertab to use context completion by default
+let g:SuperTabDefaultCompletionType = "context"
+" Don't scan through included files (takes a very long time)
+set complete-=i
+
 "" Misc
 " Always show at least two lines of context when scrolling
 set scrolloff=2

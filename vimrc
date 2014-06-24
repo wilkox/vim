@@ -7,6 +7,8 @@ execute pathogen#infect()
 set incsearch
 " Highlight search matches
 set hlsearch
+" Map <Leader>/ (\/) to clearing search highlight
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 "" Indentation
 " Smart selection of indentation level for new lines

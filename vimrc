@@ -35,3 +35,5 @@ au BufNewFile *.pl 0r ~/.vim/perl.skel
 "" Misc
 " Always show at least two lines of context when scrolling
 set scrolloff=2
+" Prevent the frustration of entering Ex mode by accidentally typing Q
+nnoremap Q <nop>

@@ -17,6 +17,12 @@ filetype plugin indent on
 "" Syntax highlighting
 " Turn on syntax highlighting
 syntax on
+" Enable solarized colour scheme (via vim-colors-solarized plugin)
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 
 "" Markdown
 " Recognise .md as markdown

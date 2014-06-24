@@ -48,3 +48,7 @@ set complete-=i
 set scrolloff=2
 " Prevent the frustration of entering Ex mode by accidentally typing Q
 nnoremap Q <nop>
+" Jump to last position when reopening file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+endif

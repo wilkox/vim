@@ -15,6 +15,9 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 set tabstop=2 shiftwidth=2 expandtab
 " Smart selection of indentation level for new lines
 set smartindent
+" Prevent comments from losing indent
+inoremap # X#
+" set autoindent
 " Filetype-based indentation
 filetype plugin indent on
 " Highlight indentation levels (via vim-indent-guides plugin)

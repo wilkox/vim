@@ -52,6 +52,12 @@ let g:SuperTabDefaultCompletionType = "context"
 " Don't scan through included files (takes a very long time)
 set complete-=i
 
+"" easymotion
+" Require only single leader
+map <Leader> <Plug>(easymotion-prefix)
+" Bidirectional search
+nmap s <Plug>(easymotion-s)
+
 "" Misc
 " Always show at least two lines of context when scrolling
 set scrolloff=2

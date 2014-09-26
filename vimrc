@@ -58,6 +58,11 @@ map <Leader> <Plug>(easymotion-prefix)
 " Bidirectional search
 nmap s <Plug>(easymotion-s)
 
+"" vim-commentary
+" Filetype-specific comment strings
+autocmd FileType perl set commentstring=#\ %s
+autocmd FileType r set commentstring=#\ %s
+
 "" Misc
 " Always show at least two lines of context when scrolling
 set scrolloff=2

@@ -43,6 +43,10 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Perl skeleton
 au BufNewFile *.pl 0r ~/.vim/perl.skel
 
+"" Shell
+" Shell skeleton
+au BufNewFile *.sh 0r ~/.vim/shell.skel
+
 "" Tab completion
 "" Using supertab plugin
 " Enable omnicompletion

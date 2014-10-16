@@ -47,6 +47,10 @@ au BufNewFile *.pl 0r ~/.vim/perl.skel
 " Shell skeleton
 au BufNewFile *.sh 0r ~/.vim/shell.skel
 
+"" Tidy
+" Set tab as delimiter for tidy files
+let g:tidy_delimiter = "\t"
+
 "" Tab completion
 "" Using supertab plugin
 " Enable omnicompletion

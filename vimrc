@@ -88,20 +88,8 @@ endif
 
 "" Vim-R-plugin
 filetype plugin on
-" Use Ctrl+Space to do omnicompletion:
-if has("gui_running")
-    inoremap <C-Space> <C-x><C-o>
-else
-    inoremap <Nul> <C-x><C-o>
-endif
 " Press the space bar to send lines (in Normal mode) and selections to R:
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
 let vimrplugin_vsplit = 1
-
-
-" Force Vim to use 256 colors if running in a capable terminal emulator:
-if &term =~ "xterm" || &term =~ "256" || $DISPLAY != "" || $HAS_256_COLORS == "yes"
-    set t_Co=256
-endif

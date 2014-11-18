@@ -1,0 +1,126 @@
+all_labelsfunctionfunctionknitrNO_ARGS
+all_patternslistlistknitrNot a function
+all_patterns$rnwlist knitrNot a function
+all_patterns$brewlist knitrNot a function
+all_patterns$texlist knitrNot a function
+all_patterns$htmllist knitrNot a function
+all_patterns$mdlist knitrNot a function
+all_patterns$rstlist knitrNot a function
+all_patterns$asciidoclist knitrNot a function
+all_patterns$textilelist knitrNot a function
+asis_outputfunctionfunctionknitrx	metaNULL	cacheablelength(meta) == 0
+current_inputfunctionfunctionknitrNO_ARGS
+dep_autofunctionfunctionknitrpathopts_chunk$get("cache.path")
+dep_prevfunctionfunctionknitrNO_ARGS
+eclipse_themefunctionfunctionknitrid
+engine_outputfunctionfunctionknitroptions	code	out	extraNULL
+fig_chunkfunctionfunctionknitrlabel	ext""	number	fig.pathopts_chunk$get("fig.path")
+fig_pathfunctionfunctionknitrsuffix""	optionsopts_current$get()	number
+hook_ffmpeg_htmlfunctionfunctionknitrx	options
+hook_movecodefunctionfunctionknitrx
+hook_optipngfunctionfunctionknitrbefore	options	envir
+hook_pdfcropfunctionfunctionknitrbefore	options	envir
+hook_plot_asciidocfunctionfunctionknitrx	options
+hook_plot_customfunctionfunctionknitrbefore	options	envir
+hook_plot_htmlfunctionfunctionknitrx	options
+hook_plot_mdfunctionfunctionknitrx	options
+hook_plot_rstfunctionfunctionknitrx	options
+hook_plot_texfunctionfunctionknitrx	options
+hook_plot_textilefunctionfunctionknitrx	options
+hook_purlfunctionfunctionknitrbefore	options	envir
+hook_r2swffunctionfunctionknitrx	options
+hook_rglfunctionfunctionknitrbefore	options	envir
+hook_scianimatorfunctionfunctionknitrx	options
+hook_webglfunctionfunctionknitrbefore	options	envir
+image_urifunctionfunctionknitrf
+imgur_uploadfunctionfunctionknitrfile	key"9f3460e67f308f6"
+kablefunctionfunctionknitrx	format	digitsgetOption("digits")	row.namesNA	col.namescolnames(x)	align	captionNULL	escapeTRUE	...
+knitfunctionfunctionknitrinput	outputNULL	tangleFALSE	textNULL	quietFALSE	envirparent.frame()	encodinggetOption("encoding")
+knit_childfunctionfunctionknitr...	optionsNULL	envirknit_global()
+knit_engineslistlistknitrNot a function
+knit_engines$getfunctionfunctionknitrUnknown arguments
+knit_engines$setfunctionfunctionknitrUnknown arguments
+knit_engines$mergefunctionfunctionknitrUnknown arguments
+knit_engines$restorefunctionfunctionknitrUnknown arguments
+knit_exitfunctionfunctionknitrappend
+knit_expandfunctionfunctionknitrfile	...	textreadLines(file, warn = FALSE)	delimc("{{", "}}")
+knit_filterfunctionfunctionknitrifile	encoding"unknown"
+knit_globalfunctionfunctionknitrNO_ARGS
+knit_hookslistlistknitrNot a function
+knit_hooks$getfunctionfunctionknitrUnknown arguments
+knit_hooks$setfunctionfunctionknitrUnknown arguments
+knit_hooks$mergefunctionfunctionknitrUnknown arguments
+knit_hooks$restorefunctionfunctionknitrUnknown arguments
+knit_metafunctionfunctionknitrclassNULL	cleanTRUE
+knit_patternslistlistknitrNot a function
+knit_patterns$getfunctionfunctionknitrUnknown arguments
+knit_patterns$setfunctionfunctionknitrUnknown arguments
+knit_patterns$mergefunctionfunctionknitrUnknown arguments
+knit_patterns$restorefunctionfunctionknitrUnknown arguments
+knit_printfunctionfunctionknitrx	...
+knit_rdfunctionfunctionknitrpkg	linkstools::findHTMLlinks()	frameTRUE
+knit_rd_allfunctionfunctionknitrNO_ARGS
+knit_themelistlistknitrNot a function
+knit_theme$setfunctionfunctionknitrUnknown arguments
+knit_theme$getfunctionfunctionknitrUnknown arguments
+knit2htmlfunctionfunctionknitrinput	outputNULL	...	envirparent.frame()	textNULL	quietFALSE	encodinggetOption("encoding")
+knit2pdffunctionfunctionknitrinput	outputNULL	compilerNULL	envirparent.frame()	quietFALSE	encodinggetOption("encoding")	...
+knit2wpfunctionfunctionknitrinput	title"A post from knitr"	...	shortcodeFALSE	encodinggetOption("encoding")	publishTRUE
+normal_printfunctionfunctionknitrx	...
+opts_chunklistlistknitrNot a function
+opts_chunk$getfunctionfunctionknitrUnknown arguments
+opts_chunk$setfunctionfunctionknitrUnknown arguments
+opts_chunk$mergefunctionfunctionknitrUnknown arguments
+opts_chunk$restorefunctionfunctionknitrUnknown arguments
+opts_currentlistlistknitrNot a function
+opts_current$getfunctionfunctionknitrUnknown arguments
+opts_current$setfunctionfunctionknitrUnknown arguments
+opts_current$mergefunctionfunctionknitrUnknown arguments
+opts_current$restorefunctionfunctionknitrUnknown arguments
+opts_knitlistlistknitrNot a function
+opts_knit$getfunctionfunctionknitrUnknown arguments
+opts_knit$setfunctionfunctionknitrUnknown arguments
+opts_knit$mergefunctionfunctionknitrUnknown arguments
+opts_knit$restorefunctionfunctionknitrUnknown arguments
+opts_templatelistlistknitrNot a function
+opts_template$getfunctionfunctionknitrUnknown arguments
+opts_template$setfunctionfunctionknitrUnknown arguments
+opts_template$mergefunctionfunctionknitrUnknown arguments
+opts_template$restorefunctionfunctionknitrUnknown arguments
+pandocfunctionfunctionknitrinput	format	configgetOption("config.pandoc")	extNA	encodinggetOption("encoding")
+pat_asciidocfunctionfunctionknitrNO_ARGS
+pat_brewfunctionfunctionknitrNO_ARGS
+pat_htmlfunctionfunctionknitrNO_ARGS
+pat_mdfunctionfunctionknitrNO_ARGS
+pat_rnwfunctionfunctionknitrNO_ARGS
+pat_rstfunctionfunctionknitrNO_ARGS
+pat_texfunctionfunctionknitrNO_ARGS
+pat_textilefunctionfunctionknitrNO_ARGS
+plot_cropfunctionfunctionknitrx
+purlfunctionfunctionknitr...
+rand_seed{ knitrNot a function
+read_chunkfunctionfunctionknitrpath	linesreadLines(path, warn = FALSE)	labelsNULL	fromNULL	toNULL
+read_demofunctionfunctionknitrtopic	packageNULL	...
+read_rforgefunctionfunctionknitrpath	project	extra""
+render_asciidocfunctionfunctionknitrNO_ARGS
+render_htmlfunctionfunctionknitrNO_ARGS
+render_jekyllfunctionfunctionknitrhighlightc("pygments", "prettify", "none")	extra""
+render_latexfunctionfunctionknitrNO_ARGS
+render_listingsfunctionfunctionknitrNO_ARGS
+render_markdownfunctionfunctionknitrstrictFALSE
+render_rstfunctionfunctionknitrstrictFALSE
+render_sweavefunctionfunctionknitrNO_ARGS
+render_textilefunctionfunctionknitrNO_ARGS
+roccofunctionfunctionknitrinput	...
+rst2pdffunctionfunctionknitrinput	command"rst2pdf"	options""
+set_aliasfunctionfunctionknitr...
+set_headerfunctionfunctionknitr...
+set_parentfunctionfunctionknitrparent
+spinfunctionfunctionknitrhair	knitTRUE	reportTRUE	textNULL	envirparent.frame()	formatc("Rmd", "Rnw", "Rhtml", "Rtex", "Rrst")	doc"^#+'[ ]?"	inline"^[{][{](.+)[}][}][ ]*$"	commentc("^[# ]*/[*]", "^.*[*]/ *$")	precious!knit && is.null(text)
+spin_childfunctionfunctionknitrinput	format
+stitchfunctionfunctionknitrscript	templatesystem.file("misc", "knitr-template.Rnw", package = "knitr")	outputNULL	textNULL	envirparent.frame()
+stitch_rhtmlfunctionfunctionknitr...
+stitch_rmdfunctionfunctionknitr...
+Sweave2knitrfunctionfunctionknitrfile	outputgsub("[.]([^.]+)$", "-knitr.\\1", file)	encodinggetOption("encoding")	textNULL
+wrap_rmdfunctionfunctionknitrfile	width80	textNULL	backup
+write_bibfunctionfunctionknitrx.packages()	file""	tweakTRUE	prefixgetOption("knitr.bib.prefix", "R-")

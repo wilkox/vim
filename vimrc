@@ -93,3 +93,8 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
 let vimrplugin_vsplit = 1
+
+"" Persistant undo
+call system('mkdir ' . $HOME . "/.vimundo")
+set undodir=$HOME/.vimundo
+set undofile

@@ -95,6 +95,8 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
 let vimrplugin_vsplit = 1
+" Disable mapping of "_" to " -> "
+let vimrplugin_assign = 0
 
 "" Persistant undo
 call system('mkdir ' . $HOME . "/.vimundo")

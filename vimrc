@@ -85,6 +85,8 @@ nnoremap Q <nop>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 endif
+" Allow backspacing past insertion point
+set backspace=indent,eol,start
 
 "" Vim-R-plugin
 filetype plugin on

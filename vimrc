@@ -2,6 +2,21 @@
 " Load pathogen.vim
 execute pathogen#infect()
 
+"" Indentation
+" Set tabstop/shift width to 2 columns, and map this to <Tab>
+set tabstop=2 shiftwidth=2 expandtab
+" Smart selection of indentation level for new lines
+" set smartindent
+" Prevent comments from losing indent
+inoremap # X#
+" Filetype-based indentation
+filetype plugin on
+filetype indent on
+" Highlight indentation levels (via vim-indent-guides plugin)
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
 "" Leader
 " Map localleader to \
 let maplocalleader = "\\"
@@ -13,21 +28,6 @@ set incsearch
 set hlsearch
 " Map <Leader>/ (\/) to clearing search highlight
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-
-"" Indentation
-" Set tabstop/shift width to 2 columns, and map this to <Tab>
-set tabstop=2 shiftwidth=2 expandtab
-" Smart selection of indentation level for new lines
-set smartindent
-" Prevent comments from losing indent
-inoremap # X#
-" set autoindent
-" Filetype-based indentation
-filetype plugin indent on
-" Highlight indentation levels (via vim-indent-guides plugin)
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
 
 "" Syntax highlighting
 " Turn on syntax highlighting

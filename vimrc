@@ -56,6 +56,10 @@ au BufNewFile *.sh 0r ~/.vim/shell.skel
 " Set tab as delimiter for tidy files
 let g:tidy_delimiter = "\t"
 
+"" delimitMate
+" Don't match < in .Rmd
+au FileType Rmd let b:delimitMate_matchpairs = "(:),[:],{:}"
+
 "" Tab completion
 "" Using supertab plugin
 " Enable omnicompletion
@@ -97,6 +101,8 @@ nmap <Space> <Plug>RDSendLine
 let vimrplugin_vsplit = 1
 " Disable mapping of "_" to " -> "
 let vimrplugin_assign = 0
+" Disable matching of <
+let vimrplugin_rnowebchunk = 0
 
 "" Persistant undo
 call system('mkdir ' . $HOME . "/.vimundo")

@@ -91,6 +91,8 @@ if has("autocmd")
 endif
 " Allow backspacing past insertion point
 set backspace=indent,eol,start
+" jj in insert mode -> ESC
+inoremap jj <ESC>
 
 "" Vim-R-plugin
 filetype plugin on

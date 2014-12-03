@@ -110,3 +110,8 @@ let vimrplugin_rnowebchunk = 0
 call system('mkdir ' . $HOME . "/.vimundo")
 set undodir=$HOME/.vimundo
 set undofile
+
+"" Spell checking
+set spell 
+set spelllang=en_au
+set spellfile=$HOME/vim/spellfile.add

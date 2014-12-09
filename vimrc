@@ -106,6 +106,8 @@ let vimrplugin_vsplit = 1
 let vimrplugin_assign = 0
 " Disable matching of <
 let vimrplugin_rnowebchunk = 0
+" Don't clobber the tmux window title
+let vimrplugin_tmux_title = "automatic"
 
 "" Persistent undo
 call system('mkdir ' . $HOME . "/.vimundo")
@@ -116,3 +118,7 @@ set undofile
 set spell 
 set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
+
+"" BufExplorer
+" Remap BufExplorer invocation
+nnoremap <silent> <Leader>qq :BufExplorer<CR>

@@ -122,3 +122,8 @@ set spellfile=$HOME/vim/spellfile.add
 "" BufExplorer
 " Remap BufExplorer invocation
 nnoremap <silent> <Leader>qq :BufExplorer<CR>
+
+"" Mouse
+" Enable mouse use in all modes
+set mouse=a
+set ttymouse=xterm2

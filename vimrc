@@ -58,7 +58,8 @@ let g:tidy_delimiter = "\t"
 
 "" delimitMate
 " Don't match < in .Rmd
-au FileType Rmd let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType rmd let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType rmd let b:delimitMate_quotes = "\" '"
 
 "" Tab completion
 "" Using supertab plugin
@@ -106,7 +107,7 @@ let vimrplugin_assign = 0
 " Disable matching of <
 let vimrplugin_rnowebchunk = 0
 
-"" Persistant undo
+"" Persistent undo
 call system('mkdir ' . $HOME . "/.vimundo")
 set undodir=$HOME/.vimundo
 set undofile

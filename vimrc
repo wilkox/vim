@@ -80,6 +80,7 @@ nmap s <Plug>(easymotion-s)
 " Filetype-specific comment strings
 autocmd FileType perl set commentstring=#\ %s
 autocmd FileType r set commentstring=#\ %s
+autocmd FileType rmd set commentstring=#\ %s
 
 "" Misc
 " Always show at least two lines of context when scrolling
@@ -99,7 +100,6 @@ nnoremap <F5> "=strftime("# %c")<CR>P
 inoremap <F5> <C-R>=strftime("# %c")<CR>"
 
 "" Vim-R-plugin
-filetype plugin on
 " Press the space bar to send lines (in Normal mode) and selections to R:
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
@@ -125,3 +125,7 @@ set spellfile=$HOME/vim/spellfile.add
 "" BufExplorer
 " Remap BufExplorer invocation
 nnoremap <silent> <Leader>qq :BufExplorer<CR>
+
+"" System clipboard integration with Ctrl+c, Ctrl+x
+vmap <C-x> :!pbcopy<CR>  
+vmap <C-c> :w !pbcopy<CR><CR> 

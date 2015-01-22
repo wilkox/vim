@@ -96,8 +96,8 @@ set backspace=indent,eol,start
 " jj in insert mode -> ESC
 inoremap jj <ESC>
 " F5 inserts timestamp as markdown header
-nnoremap <F5> "=strftime("# %c")<CR>P
-inoremap <F5> <C-R>=strftime("# %c")<CR>"
+nnoremap <F5> "=strftime("## %c")<CR>P
+inoremap <F5> <C-R>=strftime("## %c")<CR>
 
 "" Vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:

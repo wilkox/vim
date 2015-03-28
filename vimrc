@@ -98,6 +98,8 @@ inoremap jj <ESC>
 " F5 inserts timestamp as markdown header
 nnoremap <F5> "=strftime("## %c")<CR>P
 inoremap <F5> <C-R>=strftime("## %c")<CR>
+" Show the number of characters/lines highlighted in Visual mode
+set showcmd
 
 "" Vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:

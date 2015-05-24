@@ -136,3 +136,5 @@ vmap <C-c> :w !pbcopy<CR><CR>
 let g:notes_directories = ['~/notes']
 " Save notes as .md
 let g:notes_suffix = '.md'
+" Disable indenting on tab keypress, as it overrides omnicompletion
+let g:notes_tab_indents = 0

@@ -130,3 +130,9 @@ nnoremap <silent> <Leader>qq :BufExplorer<CR>
 "" System clipboard integration with Ctrl+c, Ctrl+x
 vmap <C-x> :!pbcopy<CR>  
 vmap <C-c> :w !pbcopy<CR><CR> 
+
+"" vim-notes
+" Set notes directory
+let g:notes_directories = ['~/notes']
+" Save notes as .md
+let g:notes_suffix = '.md'

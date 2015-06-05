@@ -112,6 +112,8 @@ let vimrplugin_assign = 0
 let vimrplugin_rnowebchunk = 0
 " Don't clobber the tmux window title
 let vimrplugin_tmux_title = "automatic"
+" Don't show R documentation in vim
+let vimrplugin_vimpager = "no"
 
 "" Persistent undo
 call system('mkdir ' . $HOME . "/.vimundo")

@@ -1,4 +1,3 @@
-.R	r-plugin.txt	/*.R*
 :RBuildTags	r-plugin.txt	/*:RBuildTags*
 :Rinsert	r-plugin.txt	/*:Rinsert*
 r-plugin-R-setup	r-plugin.txt	/*r-plugin-R-setup*
@@ -7,14 +6,13 @@ r-plugin-SyncTeX	r-plugin.txt	/*r-plugin-SyncTeX*
 r-plugin-SyncTeX-win	r-plugin.txt	/*r-plugin-SyncTeX-win*
 r-plugin-bash-setup	r-plugin.txt	/*r-plugin-bash-setup*
 r-plugin-bindings	r-plugin.txt	/*r-plugin-bindings*
+r-plugin-df-view	r-plugin.txt	/*r-plugin-df-view*
 r-plugin-features	r-plugin.txt	/*r-plugin-features*
 r-plugin-files	r-plugin.txt	/*r-plugin-files*
 r-plugin-folding	r-plugin.txt	/*r-plugin-folding*
-r-plugin-global	r-plugin.txt	/*r-plugin-global*
 r-plugin-indenting	r-plugin.txt	/*r-plugin-indenting*
 r-plugin-installation	r-plugin.txt	/*r-plugin-installation*
 r-plugin-key-bindings	r-plugin.txt	/*r-plugin-key-bindings*
-r-plugin-knitr	r-plugin.txt	/*r-plugin-knitr*
 r-plugin-known-bugs	r-plugin.txt	/*r-plugin-known-bugs*
 r-plugin-latex-box	r-plugin.txt	/*r-plugin-latex-box*
 r-plugin-localleader	r-plugin.txt	/*r-plugin-localleader*
@@ -26,7 +24,6 @@ r-plugin-quick-setup	r-plugin.txt	/*r-plugin-quick-setup*
 r-plugin-remote	r-plugin.txt	/*r-plugin-remote*
 r-plugin-showmarks	r-plugin.txt	/*r-plugin-showmarks*
 r-plugin-snippets	r-plugin.txt	/*r-plugin-snippets*
-r-plugin-source-echo	r-plugin.txt	/*r-plugin-source-echo*
 r-plugin-tagsfile	r-plugin.txt	/*r-plugin-tagsfile*
 r-plugin-tips	r-plugin.txt	/*r-plugin-tips*
 r-plugin-tmux	r-plugin.txt	/*r-plugin-tmux*
@@ -56,6 +53,10 @@ vimrplugin_listmethods	r-plugin.txt	/*vimrplugin_listmethods*
 vimrplugin_map_r	r-plugin.txt	/*vimrplugin_map_r*
 vimrplugin_never_unmake_menu	r-plugin.txt	/*vimrplugin_never_unmake_menu*
 vimrplugin_notmuxconf	r-plugin.txt	/*vimrplugin_notmuxconf*
+vimrplugin_objbr_allnames	r-plugin.txt	/*vimrplugin_objbr_allnames*
+vimrplugin_objbr_labelerr	r-plugin.txt	/*vimrplugin_objbr_labelerr*
+vimrplugin_objbr_opendf	r-plugin.txt	/*vimrplugin_objbr_opendf*
+vimrplugin_objbr_openlist	r-plugin.txt	/*vimrplugin_objbr_openlist*
 vimrplugin_objbr_place	r-plugin.txt	/*vimrplugin_objbr_place*
 vimrplugin_objbr_w	r-plugin.txt	/*vimrplugin_objbr_w*
 vimrplugin_openhtml	r-plugin.txt	/*vimrplugin_openhtml*
@@ -63,6 +64,7 @@ vimrplugin_openpdf	r-plugin.txt	/*vimrplugin_openpdf*
 vimrplugin_pdfviewer	r-plugin.txt	/*vimrplugin_pdfviewer*
 vimrplugin_r_args	r-plugin.txt	/*vimrplugin_r_args*
 vimrplugin_r_path	r-plugin.txt	/*vimrplugin_r_path*
+vimrplugin_rcomment_string	r-plugin.txt	/*vimrplugin_rcomment_string*
 vimrplugin_rconsole_height	r-plugin.txt	/*vimrplugin_rconsole_height*
 vimrplugin_rconsole_width	r-plugin.txt	/*vimrplugin_rconsole_width*
 vimrplugin_restart	r-plugin.txt	/*vimrplugin_restart*
@@ -85,6 +87,7 @@ vimrplugin_sweaveargs	r-plugin.txt	/*vimrplugin_sweaveargs*
 vimrplugin_synctex	r-plugin.txt	/*vimrplugin_synctex*
 vimrplugin_term	r-plugin.txt	/*vimrplugin_term*
 vimrplugin_term_cmd	r-plugin.txt	/*vimrplugin_term_cmd*
+vimrplugin_texerr	r-plugin.txt	/*vimrplugin_texerr*
 vimrplugin_tmpdir	r-plugin.txt	/*vimrplugin_tmpdir*
 vimrplugin_tmux_ob	r-plugin.txt	/*vimrplugin_tmux_ob*
 vimrplugin_tmux_title	r-plugin.txt	/*vimrplugin_tmux_title*

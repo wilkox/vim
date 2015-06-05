@@ -5,7 +5,7 @@
 Authors: Jakson A. Aquino   <jalvesaq@gmail.com>
          Jose Claudio Faria <joseclaudio.faria@gmail.com>
 
-Version: 1.2.2
+Version: 1.2.5
 For Vim version 7.4
 
  1. Overview                                    |r-plugin-overview|
@@ -115,7 +115,7 @@ dependencies:
 
     * R's version must be >= 3.0.0: http://www.r-project.org/
 
-    * vimcom = 1.2-1: http://www.lepem.ufc.br/jaa/vimcom.html
+    * vimcom = 1.2-5: http://www.lepem.ufc.br/jaa/vimcom.html
 
       Note: If you cannot build vimcom yourself, you will want to
       download and install the zip file.
@@ -152,7 +152,7 @@ Before installing the plugin, you should install its dependencies:
 
    R >= 3.0.0: http://www.r-project.org/
 
-   vimcom = 1.2-1: http://www.lepem.ufc.br/jaa/vimcom.html
+   vimcom = 1.2-5: http://www.lepem.ufc.br/jaa/vimcom.html
 
    Only if you edit Rnoweb files: MacTeX, BasicTeX or other LaTeX system.
 
@@ -206,7 +206,7 @@ Before installing the plugin, you should install its dependencies:
 
    R >= 3.0.0: http://www.r-project.org/
 
-   vimcom = 1.2-1: http://www.lepem.ufc.br/jaa/vimcom.html
+   vimcom = 1.2-5: http://www.lepem.ufc.br/jaa/vimcom.html
 
    Tmux >= 1.8:   http://tmux.sourceforge.net
                   Tmux is necessary to send commands from Vim to R Console.
@@ -357,10 +357,10 @@ section |r-plugin-indenting| of this document.
 3.6.2 Install additional plugins~
 
 You may be interested in installing additional general plugins to get
-functionality not provided by this file type plugin. ShowMarks and snipMate
-are particularly interesting. Please read |r-plugin-tips| for details. If you
-edit Rnoweb files, you may want to try LaTeX-Box for omnicompletion of LaTeX
-code (see |r-plugin-latex-box| for details).
+functionality not provided by this file type plugin. Particularly interesting
+are vim-signature, csv.vim and snipMate. Please read |r-plugin-tips| for
+details. If you edit Rnoweb files, you may want to try LaTeX-Box for
+omnicompletion of LaTeX code (see |r-plugin-latex-box| for details).
 
 
 ==============================================================================
@@ -395,23 +395,35 @@ Start/Close
 
 Send
   . File                                               \aa
+  . File (echo)                                        \ae
   . File (open .Rout)                                  \ao
   --------------------------------------------------------
   . Block (cur)                                        \bb
+  . Block (cur, echo)                                  \be
   . Block (cur, down)                                  \bd
+  . Block (cur, echo and down)                         \ba
   --------------------------------------------------------
   . Chunk (cur)                                        \cc
+  . Chunk (cur, echo)                                  \ce
   . Chunk (cur, down)                                  \cd
+  . Chunk (cur, echo and down)                         \ca
   . Chunk (from first to here)                         \ch
   --------------------------------------------------------
   . Function (cur)                                     \ff
+  . Function (cur, echo)                               \fe
   . Function (cur and down)                            \fd
+  . Function (cur, echo and down)                      \fa
   --------------------------------------------------------
   . Selection                                          \ss
+  . Selection (echo)                                   \se
   . Selection (and down)                               \sd
+  . Selection (echo and down)                          \sa
+  . Selection (evaluate and insert output in new tab)  \so
   --------------------------------------------------------
   . Paragraph                                          \pp
+  . Paragraph (echo)                                   \pe
   . Paragraph (and down)                               \pd
+  . Paragraph (echo and down)                          \pa
   --------------------------------------------------------
   . Line                                                \l
   . Line (and down)                                     \d
@@ -429,6 +441,7 @@ Command
   . Print (cur)                                        \rp
   . Names (cur)                                        \rn
   . Structure (cur)                                    \rt
+  . View data.frame (cur)                              \rv
   --------------------------------------------------------
   . Arguments (cur)                                    \ra
   . Example (cur)                                      \re
@@ -537,6 +550,14 @@ in each case:
    summary(x)
    summary(m)
 <
+If the object under the cursor is a data.frame or a matrix, <LocalLeader>rv
+will show it in a new tab. If the csv.vim plugin is not installed, the
+Vim-R-plugin will warn you about that (see |r-plugin-df-view|). Specially
+useful commands from the csv.vim plugin are |:CSVHeader|, |:ArrangeColumn| and
+|:CSVHiColumn|. It can be installed from:
+
+   http://www.vim.org/scripts/script.php?script_id=2830
+
 When completing object names (CTRL-X CTRL-O) and function arguments (CTRL-X
 CTRL-A) you have to press CTRL-N to go foward in the list and CTRL-P to go
 backward (see |popupmenu-completion|). Note: if using Vim in a terminal
@@ -668,14 +689,13 @@ the currently loaded libraries. The Object Browser requires the
 to correctly align list items.
 
 In the .GlobalEnv view, if an object has the attribute "label", it will also
-be displayed. Please, see the R help for package vimcom for some options
-to control the Object Browser behavior. In the Object Browser window, while in
-Normal mode, you can either press <Enter> or double click (GVim only) over a
-data.frame or list to show/hide its elements (not if viewing the content of
-loaded libraries). If you are running R in an environment where the string
-UTF-8 is part of either LC_MESSAGES or LC_ALL variables, unicode line drawing
-characters will be used to draw lines in the Object Browser. This is the case
-of most Linux distributions.
+be displayed. In the Object Browser window, while in Normal mode, you can
+either press <Enter> or double click (GVim only) over a data.frame or list to
+show/hide its elements (not if viewing the content of loaded libraries). If
+you are running R in an environment where the string UTF-8 is part of either
+LC_MESSAGES or LC_ALL variables, unicode line drawing characters will be used
+to draw lines in the Object Browser. This is the case of most Linux
+distributions.
 
 In the Libraries view, you can either double click or press <Enter> on a
 library name to see its objects. In the Object Browser the libraries have the
@@ -870,12 +890,12 @@ pane and, then, paste.
 
 However, if you want to copy something from either Vim or R to another
 application not running inside Tmux, Tmux may prevent the X server from
-capturing the text selected by the mouse. The solution is to disable mouse
-support in Tmux. You will be able to toggle mouse support on and off by typing
-<C-a>m if you add the following line to your ~/.tmux.conf:
->
-   bind m run-shell '( if [ "mode-mouse off" = "$(tmux show-window-option mode-mouse)" ]; then toggle=on; else toggle=off; fi; tmux display-message "mouse $toggle"; tmux set-option -w mode-mouse $toggle ; for cmd in mouse-select-pane mouse-resize-pane mouse-select-window; do tmux set-option -g $cmd $toggle ; done;) > /dev/null 2>&1'
-<
+capturing the text selected by the mouse. This can be prevented by
+pressing the <Shift> key, as it suspends the capturing of mouse events
+by tmux. If you keep <Shift> pressed while selecting text with the mouse,
+it will be available in the X server clipboard and can be inserted
+into other windows using the middle mouse button. It can of course also be
+inserted into a tmux window using <Shift> and the middle mouse button.
 
 ------------------------------------------------------------------------------
 							     *r-plugin-remote*
@@ -963,46 +983,14 @@ Normal, Visual and Insert modes.
 
 
 ------------------------------------------------------------------------------
-5.3. Syntactically correct code may be wrongly indented~
-
-If the Vim-R-plugin indents your code wrongly you may get the correct
-indentation by adding braces and line breaks to it. For example, try to indent
-the code below:
->
-   # This code will be wrongly indented:
-
-   levels(x) <- ## nl == nL or 1
-       if (nl == nL) as.character(labels)
-       else paste(labels, seq_along(levels), sep = "")
-   class(x) <- c(if(ordered) "ordered", "factor")
-
-
-   # But this one will be correctly indented:
-
-   levels(x) <- ## nl == nL or 1
-       if (nl == nL)
-           as.character(labels)
-       else
-           paste(labels, seq_along(levels), sep = "")
-   class(x) <- c(if(ordered) "ordered", "factor")
-<
-See also:
-
-   https://github.com/jcfaria/Vim-R-plugin/issues/37
-   https://github.com/jcfaria/Vim-R-plugin/issues/77
-   https://github.com/jcfaria/Vim-R-plugin/issues/158
-   https://github.com/jcfaria/Vim-R-plugin/blob/master/r-plugin/indent_test.R
-
-
-------------------------------------------------------------------------------
-5.4. Functions are not always correctly sent to R~
+5.3. Functions are not always correctly sent to R~
 
 The plugin is only capable of recognizing functions defined using the `<-`
 operator. See: https://github.com/jcfaria/Vim-R-plugin/issues/94
 
 
 ------------------------------------------------------------------------------
-5.5. Objects Browser does not support knitr cache=TRUE~
+5.4. Objects Browser does not support knitr cache=TRUE~
 
 When processing Rnoweb documents with the knitr package, if the chunk option
 `cache` is `TRUE`, the Object Browser will not be able to detect the classes
@@ -1011,7 +999,7 @@ issue is to define the chunk option `cache.lazy=FALSE`.
 
 
 ------------------------------------------------------------------------------
-5.6. Wrong message that "R is busy" (Windows only)~
+5.5. Wrong message that "R is busy" (Windows only)~
 
 On Windows, when code is sent from Vim to R Console, the vimcom library
 sets the value of the internal variable `r_is_busy` to 1. The value is set
@@ -1028,7 +1016,7 @@ The vimcom library is started with the state `busy`.
 
 ------------------------------------------------------------------------------
 							*r-plugin-SyncTeX-win*
-5.7. SyncTeX on Windows~
+5.6. SyncTeX on Windows~
 
 On Windows, backward search with Sumatra pop ups a console window which
 quickly disappears (it is `vim` running the required `--remote-expr` command).
@@ -1036,7 +1024,7 @@ quickly disappears (it is `vim` running the required `--remote-expr` command).
 
 ------------------------------------------------------------------------------
 								*r-plugin-nox*
-5.8. Bugs that affect Linux Console and Vim accessed through ssh~
+5.7. Bugs that affect Linux Console and Vim accessed through ssh~
 
 If you run Vim in the Linux Console or start Vim in a terminal emulator
 without the command line argument |--servername|, Vim will not receive remote
@@ -1102,7 +1090,7 @@ See also: |r-plugin-remote|.
 
 
 ------------------------------------------------------------------------------
-5.9. R must be started by Vim~
+5.8. R must be started by Vim~
 
 The communication between Vim and R will work only if R was started by Vim
 through the <LocalLeader>rf command because the plugin was designed to connect
@@ -1181,6 +1169,10 @@ is running:
 |vimrplugin_objbr_place|       Placement of Object Browser
 |vimrplugin_objbr_w|           Initial width of Object Browser window
 |vimrplugin_tmux_ob|           Run Object Browser in Tmux pane
+|vimrplugin_objbr_opendf|      Display data.frames open in the Object Browser
+|vimrplugin_objbr_openlist|    Display lists open in the Object Browser
+|vimrplugin_objbr_allnames|    Display hidden objects in the Object Browser
+|vimrplugin_objbr_labelerr|    Show error if "label" attribute is invalid
 |vimrplugin_vimpager|          Use Vim to see R documentation
 |vimrplugin_editor_w|          Minimum width of R script buffer
 |vimrplugin_help_w|            Desired width of R documentation buffer
@@ -1190,6 +1182,7 @@ is running:
 |vimrplugin_start_libs|        Objects for omnicompletion and syntax highlight
 |vimrplugin_routnotab|         Show output of R CMD BATCH in new window
 |vimrplugin_indent_commented|  Indent lines commented with the \xx command
+|vimrplugin_rcomment_string|   String to comment code with \xx and \o
 |vimrplugin_notmuxconf|        Don't use a specially built Tmux config file
 |vimrplugin_rconsole_height|   The number of lines of R Console (Tmux split)
 |vimrplugin_vsplit|            Make Tmux split the window vertically
@@ -1201,6 +1194,7 @@ is running:
 |vimrplugin_source_args|       Arguments to R `source()` function
 |vimrplugin_latexcmd|          Command to run on .tex files
 |vimrplugin_latexmk|           Define wether `latexmk` should be run
+|vimrplugin_texerr|            Show a summary of LaTeX errors after compilation
 |vimrplugin_sweaveargs|        Arguments do `Sweave()`
 |vimrplugin_rmd_environment|   Environment in which to save evaluated rmd code
 |vimrplugin_never_unmake_menu| Do not unmake the menu when switching buffers
@@ -1223,6 +1217,7 @@ is running:
 |vimrplugin_user_maps_only|    Only set user specified key bindings
 |vimrplugin_tmpdir|            Where temporary files are created
 |vimrplugin_compldir|          Where lists for omnicompletion are stored
+|r-plugin-df-view|             Options for visualizing a data.frame or matrix
 |r-plugin-SyncTeX|             Options for SyncTeX
 
 
@@ -1331,9 +1326,13 @@ the value vimrplugin_assign to 2. Then, you will have to type two `_` to get
 them converted into `<-`.
 
 ------------------------------------------------------------------------------
-						      *vimrplugin_objbr_place*
-						      *vimrplugin_objbr_w*
-						      *vimrplugin_tmux_ob*
+						   *vimrplugin_objbr_place*
+						   *vimrplugin_objbr_w*
+						   *vimrplugin_tmux_ob*
+						   *vimrplugin_objbr_opendf*
+						   *vimrplugin_objbr_openlist*
+						   *vimrplugin_objbr_allnames*
+						   *vimrplugin_objbr_labelerr*
 6.4. Object Browser options~
 
 By default, the Object Browser will be created with 40 columns. The minimum
@@ -1356,6 +1355,32 @@ Valid values for the Object Browser placement are "script" or "console" and
    let vimrplugin_objbr_place = "script,right"
    let vimrplugin_objbr_place = "console,left"
 <
+The "console" option is valid only if Vim is running inside of a Tmux session.
+
+Below is an example of setup of some other options in the |vimrc| that control
+the behavior of the Object Browser:
+>
+   let vimrplugin_objbr_opendf = 1    " Show data.frames elements
+   let vimrplugin_objbr_openlist = 0  " Show lists elements
+   let vimrplugin_objbr_allnames = 0  " Show .GlobalEnv hidden objects
+   let vimrplugin_objbr_labelerr = 1  " Warn if label is not a valid text
+<
+Objects whose names start with a "." are hidden by default. If you want that
+they are displayed in the Object Browser, set the value of
+`vimrplugin_objbr_allnames` to `1`.
+
+when a `data.frame` appears in the Object Browser for the first time, its
+elements are immediately displayed, but the elements of a `list` are displayed
+only if it is explicitly opened. The options `vimrplugin_objbr_opendf` and
+`vimrplugin_objbr_openlist` control the initial status (either opened or
+closed) of, respectively, `data.frames` and `lists`. The options are ignored
+for `data.frames` and `lists` of libraries which are always started closed.
+
+If an object R's workspace has the attribute `"label"`, it is displayed in
+Nvim's Object Browser. If the `"label"` attribute is not of class
+`"character"`, and if  `vimrplugin_objbr_labelerr` is `1`, an error message is
+printed in the Object Browser.
+
 
 ------------------------------------------------------------------------------
 							 *vimrplugin_vimpager*
@@ -1369,10 +1394,6 @@ If you do not want to see R documentation in a Vim's buffer, put in your
 |vimrc|:
 >
    let vimrplugin_vimpager = "no"
-<
-And put in your `~/.Rprofile`:
->
-   options(vimcom.vimpager = FALSE)
 <
 If you want to see R documentation in Vim, but are not satisfied with the way
 it works, please, read the subsection 6.5.2 below.
@@ -1492,6 +1513,7 @@ scripts, put the following in your |vimrc|:
 ------------------------------------------------------------------------------
 						 *vimrplugin_indent_commented*
                                                  *r_indent_ess_comments*
+						 *vimrplugin_rcomment_string*
 6.11. Indent commented lines~
 
 You can type <LocalLeader>xx to comment out a line or selected lines. If the
@@ -1510,6 +1532,12 @@ table below (see |r-plugin-indenting|):
                  0                        0                #
                  1                        1                ##
                  0                        1                ###
+<
+The string used to comment text with <LocalLeader>xc, <LocalLeader>xu,
+<LocalLeader>xx and <LocalLeader>o is defined by vimrplugin_rcomment_string.
+Example:
+>
+   let vimrplugin_rcomment_string = "# "
 <
 
 ------------------------------------------------------------------------------
@@ -1606,16 +1634,15 @@ temporary file.
 
 You can add arguments to be passed to R's `source()` function. Example:
 >
-   let vimrplugin_source_args = "max.deparse.length = 300, echo = TRUE"
+   let vimrplugin_source_args = "max.deparse.length = 300"
 <
-See |r-plugin-source-echo| if you frequently need to alternate the `echo`
-argument between `TRUE` and `FALSE`.
 
 ------------------------------------------------------------------------------
 						       *vimrplugin_sweaveargs*
 						       *vimrplugin_latexcmd*
 						       *vimrplugin_latexmk*
-6.17. LaTeX command~
+						       *vimrplugin_texerr*
+6.17. LaTeX options~
 
 To produce a pdf document from the .tex file generated by either `Sweave()` or
 `knit()` command, if vimrplugin_latexmk = 1 and both `latexmk` and `perl`
@@ -1638,6 +1665,11 @@ this behavior. Examples:
 By default, vimrplugin_latexmk is 0 on Windows and 1 on other systems.
 If you want to pass arguments do the `Sweave()` function, set the value of the
 vimrplugin_sweaveargs variable.
+
+If the value of `vimrplugin_texerr` is `1`, a summary of LaTeX errors
+and warnings are produced by the compilation of the .tex document into .pdf
+file will be output to R Console at the end of the compilation. So, you do not
+have to scroll the R Console seeking for these messages.
 
 
 ------------------------------------------------------------------------------
@@ -1878,14 +1910,21 @@ Note: You should have the line  `library(vimcom)`  in your `~/.Rprofile`.
 							   *vimrplugin_vim_wd*
 6.30 Start R in working directory of Vim~
 
-The Vim-R-plugin starts R in the directory where the current buffer is. If you
-want R's working directory to be the same as Vim's working directory, put in
-your |vimrc|:
+When you are editing an R file (.R, .Rnw, .Rd, .Rmd, .Rrst) and start R, the
+R package vimcom runs the command `setwd()` with the directory of the file
+being edited as argument, that is, the R working directory becomes the same
+directory of the R file. If you want R's working directory to be the same as
+Vim's working directory, put in your |vimrc|:
 >
     let vimrplugin_vim_wd = 1
 <
 This option is useful only for those who did not enable 'autochdir'.
 
+If you prefer that the Vim-R-plugin does not set the working directory in any
+way, put in |vimrc|:
+>
+    let vimrplugin_vim_wd = -1
+<
 
 ------------------------------------------------------------------------------
 						      *vimrplugin_after_start*
@@ -1948,8 +1987,34 @@ want to know they are, while editing an R file, do in Normal mode:
 <
 
 ------------------------------------------------------------------------------
+							    *r-plugin-df-view*
+6.34 View a data.frame or matrix~
+
+The csv.vim plugin helps to visualize and edit csv files, and if it is not
+installed, the Vim-R-plugin will warn you about that when you do
+<LocalLeader>rv. If you do not want to install the csv.vim plugin, put in your
+|vimrc|:
+>
+   let vimrplugin_csv_warn = 0
+<
+If you rather prefer to see the table in a graphical viewer, you should set
+the value of vimrplugin_csv_app in your |vimrc|. Examples:
+>
+   let vimrplugin_csv_app = "localc"
+   let vimrplugin_csv_app = "c:/Program Files (x86)/LibreOffice 4/program/scalc.exe"
+<
+There is also the option of configuring the Vim-R-plugin to run an R command
+to display the data. Example:
+>
+   let vimrplugin_df_viewer = "relimp::showData(%s, font = 'Courier 14')"
+<
+The value of vimrplugin_df_viewer is a string and the substring `%s` is
+replaced by the name of the object under the cursor.
+
+
+------------------------------------------------------------------------------
 							    *r-plugin-SyncTeX*
-6.34 SyncTeX support~
+6.35 SyncTeX support~
 
 SyncTeX is a set of communication systems used by some PDF viewers and by some
 text editors which allow users to jump from a specific line in the text editor
@@ -1989,7 +2054,7 @@ Note: The current knitr package (version 1.7) has at least two limitations:
 
 
 ------------------------------------------------------------------------------
-6.34.1 Evince configuration~
+6.35.1 Evince configuration~
 
 No configuration should be required.
 
@@ -2004,7 +2069,7 @@ to press <LocalLeader>gp again.
 
 
 ------------------------------------------------------------------------------
-6.34.2 Okular configuration~
+6.35.2 Okular configuration~
 
 You have to configure Okular to call Vim during backward searches.
 In Okular, click in:
@@ -2032,7 +2097,7 @@ of Okular will be started.
 
 
 ------------------------------------------------------------------------------
-6.34.3 Zathura configuration~
+6.35.3 Zathura configuration~
 
 No configuration should be required if Evince is not installed. If evince is
 installed, put in your |vimrc|:
@@ -2049,7 +2114,7 @@ to press <LocalLeader>gp again.
 
 
 ------------------------------------------------------------------------------
-6.34.4 Skim with MacVim configuration (Mac OS X)~
+6.35.4 Skim with MacVim configuration (Mac OS X)~
 
 You have to configure Skim to call MacVim during backward searches.
 In Skim click in the drop down menu and fill the fields:
@@ -2063,7 +2128,7 @@ In Skim click in the drop down menu and fill the fields:
 <
 
 ------------------------------------------------------------------------------
-6.34.5 Sumatra configuration (Windows)~
+6.35.5 Sumatra configuration (Windows)~
 
 No configuration is required.
 
@@ -2071,7 +2136,7 @@ No configuration is required.
 ------------------------------------------------------------------------------
                                                        *vimrplugin_vim_window*
 				                       *vimrplugin_synctex*
-6.34.6 Configuring the PDF editor and Vim's window title~
+6.35.6 Configuring the PDF editor and Vim's window title~
 
 If SyncTeX does not work (see above), you may try to set in your |vimrc| the
 values of |vimrplugin_pdfviewer| and vimrplugin_vim_window.
@@ -2119,7 +2184,8 @@ The above example shows how to change key binding used to start R from
 
 Only the custom key bindings for Normal mode are shown in Vim's menu, but you
 can type |:map| to see the complete list of current mappings, and below is the
-list of the names for custom key bindings (the prefix RD means "cursor down"):
+list of the names for custom key bindings (the prefix RE means "echo";
+RD, "cursor down"; RED, both "echo" and "down"):
 
    Star/Close R~
    RStart
@@ -2153,13 +2219,22 @@ list of the names for custom key bindings (the prefix RD means "cursor down"):
 
    Send code to R console~
    RSendSelection
+   RESendSelection
    RDSendSelection
+   REDSendSelection
+   RSendSelAndInsertOutput
    RSendMBlock
+   RESendMBlock
    RDSendMBlock
+   REDSendMBlock
    RSendParagraph
+   RESendParagraph
    RDSendParagraph
+   REDSendParagraph
    RSendFunction
+   RESendFunction
    RDSendFunction
+   REDSendFunction
    RSendFile
    RESendFile
 
@@ -2173,6 +2248,7 @@ list of the names for custom key bindings (the prefix RD means "cursor down"):
    RObjectNames
    RObjectPr
    RObjectStr
+   RViewDF
    RSetwd
    RSummary
    RListSpace
@@ -2180,6 +2256,8 @@ list of the names for custom key bindings (the prefix RD means "cursor down"):
    Support to Sweave and knitr~
    RSendChunk
    RDSendChunk
+   RESendChunk
+   REDSendChunk
    RSendChunkFH (from the first chunk to here)
    RBibTeX    (Sweave)
    RBibTeXK   (Knitr)
@@ -2258,27 +2336,16 @@ directory after the installation:
    autoload/rcomplete.vim
    doc/r-plugin.txt
    ftdetect/r.vim
-   ftplugin/r.vim
    ftplugin/r_rplugin.vim
    ftplugin/rbrowser.vim
    ftplugin/rdoc.vim
-   ftplugin/rhelp.vim
    ftplugin/rhelp_rplugin.vim
-   ftplugin/rmd.vim
    ftplugin/rmd_rplugin.vim
-   ftplugin/rnoweb.vim
    ftplugin/rnoweb_rplugin.vim
-   ftplugin/rrst.vim
    ftplugin/rrst_rplugin.vim
-   indent/r.vim
-   indent/rhelp.vim
-   indent/rmd.vim
-   indent/rnoweb.vim
-   indent/rrst.vim
    r-plugin/common_buffer.vim
    r-plugin/common_global.vim
    r-plugin/functions.vim
-   r-plugin/global_r_plugin.vim
    r-plugin/gui_running.vim
    r-plugin/osx.vim
    r-plugin/r.snippets
@@ -2288,13 +2355,9 @@ directory after the installation:
    r-plugin/synctex_evince_forward.py
    r-plugin/synctex_okular_backward.sh
    r-plugin/windows.vim
-   syntax/r.vim
    syntax/rbrowser.vim
    syntax/rdoc.vim
-   syntax/rhelp.vim
-   syntax/rmd.vim
    syntax/rout.vim
-   syntax/rrst.vim
 
 
 ==============================================================================
@@ -2332,17 +2395,11 @@ mark, the plugin will send from the mark to the end of the file. The mark
 above the cursor is included and the mark below is excluded from the block to
 be sent to R. To create a mark, press m<letter> in Normal mode.
 
-We recommended the use of ShowMarks plugin which show what lines have marks
-defined. The plugin is available at:
+We recommended the use of vim-signature which show what lines have marks
+defined. The plugins are available at:
 
-   http://www.vim.org/scripts/script.php?script_id=152
+   https://github.com/kshenoy/vim-signature
 
-You may want to add the following two lines to your |vimrc| to customize
-ShowMarks behavior:
->
-   let marksCloseWhenSelected = 0
-   let showmarks_include = "abcdefghijklmnopqrstuvwxyz"
-<
 
 ------------------------------------------------------------------------------
 							   *r-plugin-snippets*
@@ -2638,32 +2695,7 @@ on top" or a similar option provided by your desktop manager.
 
 
 ------------------------------------------------------------------------------
-							     *r-plugin-global*
-9.17. Turn the R-plugin into a global plugin (Linux/Unix only)~
-
-The Vim-R-plugin is a file type plugin. If you want its functionality
-available for all file types, then put in your |vimrc|:
->
-   runtime r-plugin/global_r_plugin.vim
-<
-You will then be able to type <LocalLeader>rf to start and <LocalLeader>rq to
-quit different command line interpreters and <LocalLeader>d, l, ss, bb, etc to
-send code to the interpreter. If you want support for a language other than
-Julia, Python, Haskell, Ruby and Lisp, you have to set the values of
-vimrplugin_exe and vimrplugin_quit in two Vim auto commands in your |vimrc|,
-BEFORE the `runtime` command above. Example:
->
-   autocmd FileType matlab let vimrplugin_exe = "octave" | let vimrplugin_quit = "quit"
-   autocmd BufNewFile,BufRead *.m let vimrplugin_exe = "octave" | let vimrplugin_quit = "quit"
-<
-If you use GVim, you may also want to set |vimrplugin_never_unmake_menu| in
-your |vimrc|:
->
-   let vimrplugin_never_unmake_menu = 1
-<
-
-------------------------------------------------------------------------------
-9.18. Disable syntax highlight of R functions~
+9.17. Disable syntax highlight of R functions~
 
 If you want to disable the syntax highlight of R functions put in your
 |vimrc|:
@@ -2672,26 +2704,8 @@ If you want to disable the syntax highlight of R functions put in your
 <
 
 ------------------------------------------------------------------------------
-							      *r-plugin-knitr*
-9.19. Tips for knitr users~
-
-If you are using knitr with option cache=TRUE, you may want from time to time
-to delete all objects in R workspace and all files in the cache directory. If
-you want to use <LocalLeader>kr in Normal mode for this, put in your |vimrc|:
->
-   nmap <LocalLeader>kr :call g:SendCmdToR('rm(list=ls(all.names=TRUE)); unlink("cache/*")')<CR>
-<
-When generating pdfs out of Rmd-files, you can send options to pandoc. State
-them in your vimrc. For example
-
-   let vimrplugin_pandoc_args = "--toc -V lang=german"
-
-will produce a german document with a table of contents.
-
-
-------------------------------------------------------------------------------
 							  *r-plugin-latex-box*
-9.20. Integration with LaTeX-Box~
+9.18. Integration with LaTeX-Box~
 
 LaTeX-Box does not automatically recognize Rnoweb files as a valid LaTeX file.
 You have to tell LaTeX-BoX that the .tex file compiled by either `knitr()` or
@@ -2714,7 +2728,7 @@ See also: |vimrplugin_latexcmd|.
 
 ------------------------------------------------------------------------------
 							*r-plugin-quick-setup*
-9.21. Suggested setup for the Vim-R-plugin~
+9.19. Suggested setup for the Vim-R-plugin~
 
 Please, look at section |r-plugin-options| if you want information about the
 Vim-r-plugin customization.
@@ -2816,50 +2830,30 @@ Finally, if you want to use vi key bindings in Bash:
 <
 
 ------------------------------------------------------------------------------
-							*r-plugin-source-echo*
-9.22. Set echo to TRUE or FALSE when sending multiple lines of code too R~
 
-If you want to alternate the `echo` argument of the `source()` function
-between `TRUE` and `FALSE`, then, you might want to create a couple of maps in
-your vimrc. You can use |nmap| to restrict the maps to Normal mode, |autocmd|
-and <buffer> to restrict the maps to R code, and <silent> if you prefer that
-the command is not displayed in Vim's command line. In the example below,
-<LocalLeader>`ee` sets `echo=TRUE`:
->
-   autocmd BufNewFile,BufRead *.R* nmap <silent><buffer> <LocalLeader>ee :let vimrplugin_source_args = "echo = TRUE"<CR>
-<
-You can make another map to set `echo=FALSE`, and, if some of your files are
-named with lowercase "r" extensions, you have to repeat the commands with
-`*.r*`.
-
-
-------------------------------------------------------------------------------
-
-9.23. Syntax highlight of .Rout files~
+9.20. Syntax highlight of .Rout files~
 
 You can set the foreground colors of R output in your |vimrc|. The example
-below is for a terminal emulator that supports 256 colors (see
-|highlight-ctermfg|):
+below is for a terminal emulator that supports 256 colors (see |:highlight|):
 >
    if &t_Co == 256
-       let rout_color_input = 247
-       let rout_color_normal = 39
-       let rout_color_number = 51
-       let rout_color_integer = 51
-       let rout_color_float = 51
-       let rout_color_complex = 51
-       let rout_color_negnum = 183
-       let rout_color_negfloat = 183
-       let rout_color_date = 43
-       let rout_color_true = 78
-       let rout_color_false = 203
-       let rout_color_inf = 39
-       let rout_color_constant = 75
-       let rout_color_string = 79
-       let rout_color_stderr = 33
-       let rout_color_error = 15
-       let rout_color_warn = 1
-       let rout_color_index = 186
+       let rout_color_input    = 'ctermfg=247'
+       let rout_color_normal   = 'ctermfg=39'
+       let rout_color_number   = 'ctermfg=51'
+       let rout_color_integer  = 'ctermfg=51'
+       let rout_color_float    = 'ctermfg=51'
+       let rout_color_complex  = 'ctermfg=51'
+       let rout_color_negnum   = 'ctermfg=183'
+       let rout_color_negfloat = 'ctermfg=183'
+       let rout_color_date     = 'ctermfg=43'
+       let rout_color_true     = 'ctermfg=78'
+       let rout_color_false    = 'ctermfg=203'
+       let rout_color_inf      = 'ctermfg=39'
+       let rout_color_constant = 'ctermfg=75'
+       let rout_color_string   = 'ctermfg=79'
+       let rout_color_error    = 'ctermfg=15 ctermbg=1'
+       let rout_color_warn     = 'ctermfg=1'
+       let rout_color_index    = 'ctermfg=186'
    endif
 <
 To know what number corresponds to your preferred color (among the 256
@@ -2872,20 +2866,38 @@ put in your |vimrc|:
    let rout_follow_colorscheme = 1
 <
 
-------------------------------------------------------------------------------
-
-9.24. Integration with GNU Screen, screen plugin, Conque Shell or VimShell~
-
-The plugin used to be able to use GNU Screen (through screen plugin), Conque
-Shell or VimShell to send commands to R. This integration was removed on
-August 20, 2013. People wanting this integration back into the plugin may want
-to use the old Vim-R-plugin code as a starting point to create scripts to be
-sourced by the Vim-R-plugin. Please look at |vimrplugin_source| for details.
-
-
 ==============================================================================
 							       *r-plugin-news*
 10. News~
+
+1.2.5 (2015-05-06)
+
+ * New command to evaluate selection and get output in newtab: \so
+
+ * The command \ao no longer blocks Vim.
+
+ * New command (\rv) and new options (vimrplugin_csv_warn,
+   vimrplugin_csv_app and vimrplugin_df_viewer).
+
+ * Bring back the "echo" send commands because some users need them.
+
+1.2.4 (2015-04-22)
+
+ * Deleted r-plugin/global_R_plugin.vim. See:
+   https://github.com/jalvesaq/vimcmdline
+
+1.2.3 (2015-04-09)
+
+ * Official runtime files were deleted. See:
+   https://github.com/jalvesaq/R-Vim-runtime
+
+ * News options to control the Object Browser: vimrplugin_objbr_opendf,
+   vimrplugin_objbr_openlist, vimrplugin_objbr_allnames and
+   vimrplugin_objbr_labelerr.
+
+ * New option to control LaTeX compilation: vimrplugin_texerr.
+
+ * Fix setting of R working directory on Mac OS X.
 
 1.2.2 (2015-03-24)
 

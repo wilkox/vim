@@ -28,6 +28,8 @@ set incsearch
 set hlsearch
 " Map <Leader>/ (\/) to clearing search highlight
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
+" Map "//" to search for visually selected text
+vnoremap // y/<C-R>"<CR>
 
 "" Syntax highlighting
 " Turn on syntax highlighting

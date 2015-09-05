@@ -7,7 +7,8 @@ Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
+" Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'gilgigilgil/anderson.vim'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/easymotion/vim-easymotion.git'
@@ -55,11 +56,11 @@ vnoremap // y/<C-R>"<CR>
 set nocompatible
 syntax on
 " Enable solarized colour scheme (via vim-colors-solarized plugin)
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
+" set background=dark
+" let g:solarized_termtrans=1
+" let g:solarized_contrast="high"
+" let g:solarized_visibility="high"
+" colorscheme solarized
 
 "" Markdown
 " Recognise .md as markdown

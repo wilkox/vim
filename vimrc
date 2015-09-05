@@ -1,6 +1,25 @@
-"" Plugins
-" Load pathogen.vim
-execute pathogen#infect()
+"" Plugins with vim-plug
+" After addding a plugin, run :PlugInstall
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/mileszs/ack.vim.git'
+Plug 'https://github.com/jlanzarotta/bufexplorer.git'
+Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/Raimondi/delimitMate.git'
+Plug 'https://github.com/ervandew/supertab.git'
+Plug 'https://github.com/tpope/vim-abolish.git'
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/kana/vim-fakeclip.git'
+Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
+Plug 'https://github.com/xolox/vim-misc.git'
+Plug 'https://github.com/xolox/vim-notes.git'
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
+Plug 'https://github.com/mhinz/vim-tmuxify.git'
+Plug 'https://github.com/lervag/vimtex.git'
+call plug#end()
 
 "" Indentation
 " Set tabstop/shift width to 2 columns, and map this to <Tab>

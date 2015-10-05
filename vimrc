@@ -120,6 +120,8 @@ set showcmd
 " Allow project-specific .vimrc
 set exrc
 set secure
+" All folds open on file open
+set foldlevel=99
 
 "" Vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:

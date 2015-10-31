@@ -1,25 +1,25 @@
 "" Plugins with vim-plug
 " After addding a plugin, run :PlugInstall
-" call plug#begin('~/.vim/plugged')
-" Plug 'https://github.com/mileszs/ack.vim.git'
-" Plug 'https://github.com/jlanzarotta/bufexplorer.git'
-" Plug 'https://github.com/kien/ctrlp.vim.git'
-" Plug 'https://github.com/Raimondi/delimitMate.git'
-" Plug 'https://github.com/ervandew/supertab.git'
-" Plug 'https://github.com/tpope/vim-abolish.git'
-" Plug 'https://github.com/altercation/vim-colors-solarized.git'
-" Plug 'https://github.com/tpope/vim-commentary.git'
-" Plug 'https://github.com/tpope/vim-dispatch.git'
-" Plug 'https://github.com/easymotion/vim-easymotion.git'
-" Plug 'https://github.com/kana/vim-fakeclip.git'
-" Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
-" Plug 'https://github.com/xolox/vim-misc.git'
-" Plug 'https://github.com/xolox/vim-notes.git'
-" Plug 'https://github.com/tpope/vim-surround.git'
-" Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
-" Plug 'https://github.com/mhinz/vim-tmuxify.git'
-" Plug 'https://github.com/lervag/vimtex.git'
-" call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/mileszs/ack.vim.git'
+Plug 'https://github.com/jlanzarotta/bufexplorer.git'
+Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/Raimondi/delimitMate.git'
+Plug 'https://github.com/ervandew/supertab.git'
+Plug 'https://github.com/tpope/vim-abolish.git'
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/kana/vim-fakeclip.git'
+Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
+Plug 'https://github.com/xolox/vim-misc.git'
+Plug 'https://github.com/xolox/vim-notes.git'
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
+Plug 'https://github.com/mhinz/vim-tmuxify.git'
+Plug 'https://github.com/lervag/vimtex.git'
+call plug#end()
 
 "" Indentation
 " Set tabstop/shift width to 2 columns, and map this to <Tab>
@@ -50,16 +50,16 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Map "//" to search for visually selected text
 vnoremap // y/<C-R>"<CR>
 
-" "" Syntax highlighting
-" " Turn on syntax highlighting
-" set nocompatible
-" syntax on
-" " Enable solarized colour scheme (via vim-colors-solarized plugin)
-" set background=dark
-" let g:solarized_termtrans=1
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
-" colorscheme solarized
+"" Syntax highlighting
+" Turn on syntax highlighting
+set nocompatible
+syntax on
+" Enable solarized colour scheme (via vim-colors-solarized plugin)
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 
 "" Markdown
 " Recognise .md as markdown
@@ -152,9 +152,8 @@ set spellfile=$HOME/vim/spellfile.add
 " Remap BufExplorer invocation
 nnoremap <silent> <Leader>qq :BufExplorer<CR>
 
-"" System clipboard integration with Ctrl+c, Ctrl+x
-vmap <C-x> :!pbcopy<CR>  
-vmap <C-c> :w !pbcopy<CR><CR> 
+"" Synchronise unnamed register with clipboard
+set clipboard^=unnamed
 
 "" vim-notes
 " Set notes directory

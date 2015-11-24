@@ -84,7 +84,6 @@ vimrplugin_specialplot	r-plugin.txt	/*vimrplugin_specialplot*
 vimrplugin_start_libs	r-plugin.txt	/*vimrplugin_start_libs*
 vimrplugin_strict_rst	r-plugin.txt	/*vimrplugin_strict_rst*
 vimrplugin_sweaveargs	r-plugin.txt	/*vimrplugin_sweaveargs*
-vimrplugin_synctex	r-plugin.txt	/*vimrplugin_synctex*
 vimrplugin_term	r-plugin.txt	/*vimrplugin_term*
 vimrplugin_term_cmd	r-plugin.txt	/*vimrplugin_term_cmd*
 vimrplugin_texerr	r-plugin.txt	/*vimrplugin_texerr*
@@ -93,7 +92,6 @@ vimrplugin_tmux_ob	r-plugin.txt	/*vimrplugin_tmux_ob*
 vimrplugin_tmux_title	r-plugin.txt	/*vimrplugin_tmux_title*
 vimrplugin_user_maps_only	r-plugin.txt	/*vimrplugin_user_maps_only*
 vimrplugin_vim_wd	r-plugin.txt	/*vimrplugin_vim_wd*
-vimrplugin_vim_window	r-plugin.txt	/*vimrplugin_vim_window*
 vimrplugin_vimcom_wait	r-plugin.txt	/*vimrplugin_vimcom_wait*
 vimrplugin_vimpager	r-plugin.txt	/*vimrplugin_vimpager*
 vimrplugin_vsplit	r-plugin.txt	/*vimrplugin_vsplit*

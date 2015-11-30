@@ -19,6 +19,8 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
 Plug 'https://github.com/mhinz/vim-tmuxify.git'
 Plug 'https://github.com/lervag/vimtex.git'
+Plug 'https://github.com/FooSoft/vim-argwrap.git'
+Plug 'https://github.com/godlygeek/tabular.git'
 call plug#end()
 
 "" Indentation
@@ -162,3 +164,9 @@ let g:notes_directories = ['~/notes']
 let g:notes_suffix = '.md'
 " Disable indenting on tab keypress, as it overrides omnicompletion
 let g:notes_tab_indents = 0
+
+"" vim-argwrap
+" Set invocation to <leader>,
+nnoremap <silent> <leader>, :ArgWrap<CR>
+" Wrap closing brace to newline
+let g:argwrap_wrap_closing_brace = 1

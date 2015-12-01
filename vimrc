@@ -20,6 +20,7 @@ Plug 'https://github.com/lervag/vimtex.git'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/unite.vim'
+Plug 'https://github.com/tpope/vim-fugitive'
 call plug#end()
 
 "" Indentation

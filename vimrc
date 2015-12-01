@@ -2,8 +2,6 @@
 " After addding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/mileszs/ack.vim.git'
-Plug 'https://github.com/jlanzarotta/bufexplorer.git'
-Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
@@ -21,6 +19,7 @@ Plug 'https://github.com/mhinz/vim-tmuxify.git'
 Plug 'https://github.com/lervag/vimtex.git'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/Shougo/unite.vim'
 call plug#end()
 
 "" Indentation
@@ -39,8 +38,9 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 "" Leader
-" Map localleader to \
-let maplocalleader = "\\"
+" Map localleader to comma
+let mapleader=","
+let localleader=","
 
 "" Search
 " Jump to matches as a search string is typed
@@ -150,9 +150,11 @@ set spell
 set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
-"" BufExplorer
-" Remap BufExplorer invocation
-nnoremap <silent> <Leader>qq :BufExplorer<CR>
+"" Unite
+" Easy ':Unite file buffer' invocation
+nnoremap <silent> <Leader>qq :Unite buffer file<CR>
+" Automatically write buffers before hiding, to prevent nagging reminders
+set autowrite
 
 "" Synchronise unnamed register with clipboard
 set clipboard^=unnamed
@@ -164,6 +166,8 @@ let g:notes_directories = ['~/notes']
 let g:notes_suffix = '.md'
 " Disable indenting on tab keypress, as it overrides omnicompletion
 let g:notes_tab_indents = 0
+" Respect word boundaries
+let g:notes_word_boundaries = 1
 
 "" vim-argwrap
 " Set invocation to <leader>,

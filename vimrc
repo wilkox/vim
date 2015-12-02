@@ -21,6 +21,7 @@ Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-sleuth.git'
+Plug 'https://github.com/Shougo/neoyank.vim'
 call plug#end()
 
 "" Indentation
@@ -138,8 +139,11 @@ set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
-" Easy ':Unite file buffer' invocation
+" Invoke the 'buffer' and 'file' sources with <leader>q
 nnoremap <silent> <Leader>q :Unite -no-split buffer file<CR>
+" Invoke yank history with <leader>y (depends on neoyank)
+let g:unite_source_history_yank_enable = 1
+nnoremap <silent> <Leader>y :Unite -no-split history/yank<CR>
 " Automatically write buffers before hiding, to prevent nagging reminders
 set autowrite
 

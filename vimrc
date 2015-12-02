@@ -1,11 +1,10 @@
 "" Plugins with vim-plug
-" After addding a plugin, run :PlugInstall
+" After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/easymotion/vim-easymotion.git'
@@ -26,22 +25,19 @@ call plug#end()
 "" Indentation
 " Set tabstop/shift width to 2 columns, and map this to <Tab>
 set tabstop=2 shiftwidth=2 expandtab
-" Smart selection of indentation level for new lines
-" set smartindent
 " Prevent comments from losing indent
 inoremap # X#
 " Filetype-based indentation
 filetype plugin on
 filetype indent on
-" Highlight indentation levels (via vim-indent-guides plugin)
+" Highlight indentation levels (via vim-indent-guides)
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 "" Leader
-" Map localleader to comma
+" Map leader to comma
 let mapleader=","
-let localleader=","
 
 "" Search
 " Jump to matches as a search string is typed
@@ -57,12 +53,10 @@ vnoremap // y/<C-R>"<CR>
 " Turn on syntax highlighting
 set nocompatible
 syntax on
-" Enable solarized colour scheme (via vim-colors-solarized plugin)
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
+
+"" Colourscheme
+" Apprentice
+colorscheme apprentice
 
 "" Markdown
 " Recognise .md as markdown
@@ -115,9 +109,6 @@ endif
 set backspace=indent,eol,start
 " jj in insert mode -> ESC
 inoremap jj <ESC>
-" F5 inserts timestamp as markdown header
-nnoremap <F5> "=strftime("## %c")<CR>P
-inoremap <F5> <C-R>=strftime("## %c")<CR>
 " Show the number of characters/lines highlighted in Visual mode
 set showcmd
 " Allow project-specific .vimrc

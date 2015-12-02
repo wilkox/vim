@@ -21,6 +21,7 @@ Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
+Plug 'https://github.com/Valloric/YouCompleteMe.git'
 call plug#end()
 
 "" Indentation

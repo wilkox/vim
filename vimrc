@@ -139,7 +139,7 @@ set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
 " Easy ':Unite file buffer' invocation
-nnoremap <silent> <Leader>qq :Unite -no-split buffer file<CR>
+nnoremap <silent> <Leader>q :Unite -no-split buffer file<CR>
 " Automatically write buffers before hiding, to prevent nagging reminders
 set autowrite
 

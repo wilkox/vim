@@ -20,12 +20,17 @@ Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/tpope/vim-sleuth.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
 call plug#end()
 
 "" Indentation
-" All indentation will be handled by vim-sleuth
+" Set tabstop/shift width to 2 columns, and map this to <Tab>
+set tabstop=2 shiftwidth=2 expandtab
+" Prevent comments from losing indent
+inoremap # X#
+" Filetype-based indentation
+filetype plugin on
+filetype indent on
 " Highlight indentation levels (via vim-indent-guides)
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1

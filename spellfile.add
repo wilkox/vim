@@ -138,3 +138,8 @@ SourceTracker
 Unweighted
 unweighted
 discretisation
+Dereplicate
+fastq
+stats
+fastqs
+subsample

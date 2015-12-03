@@ -141,9 +141,11 @@ let vimrplugin_rnowebchunk = 0
 let vimrplugin_tmux_title = "automatic"
 " Don't show R documentation in vim
 let vimrplugin_vimpager = "no"
+" Mapping to add a magrittr pipe to the end of a line
+nnoremap <leader>p A<space>%>%<esc>
 
 "" Persistent undo
-call system('mkdir ' . $HOME . "/.vimundo")
+call system('mkdir -p' . $HOME . "/.vimundo")
 set undodir=$HOME/.vimundo
 set undofile
 
@@ -153,9 +155,9 @@ set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
-" Invoke the 'buffer' and 'file' sources with <leader>q
+" Mapping to invoke the 'buffer' and 'file' sources
 nnoremap <silent> <Leader>q :Unite -no-split buffer file<CR>
-" Invoke yank history with <leader>y (depends on neoyank)
+" Mapping to invoke the yank history source
 let g:unite_source_history_yank_enable = 1
 nnoremap <silent> <Leader>y :Unite -no-split history/yank<CR>
 " Automatically write buffers before hiding, to prevent nagging reminders
@@ -179,3 +181,11 @@ let g:notes_word_boundaries = 1
 nnoremap <silent> <leader>, :ArgWrap<CR>
 " Wrap closing brace to newline
 let g:argwrap_wrap_closing_brace = 1
+
+"" Mappings to edit and source .vimrc
+nnoremap <leader>ve :split $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+"" Open splits below and right by default
+set splitbelow
+set splitright

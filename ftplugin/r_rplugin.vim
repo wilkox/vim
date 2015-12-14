@@ -112,3 +112,8 @@ if exists("b:undo_ftplugin")
 else
     let b:undo_ftplugin = "unlet! b:IsInRCode"
 endif
+
+"" Custom mappings and abbreviations (added by wilkox)
+iabbrev << <-
+iabbrev >> %>%
+inoremap <c-l> <esc>A

@@ -23,7 +23,6 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
 Plug 'https://github.com/Shougo/neomru.vim'
 Plug 'https://github.com/Valloric/YouCompleteMe.git'
-Plug 'https://github.com/tpope/vim-sleuth.git'
 Plug 'https://github.com/mattn/gist-vim.git'
 Plug 'https://github.com/mattn/webapi-vim.git'
 call plug#end()
@@ -31,8 +30,12 @@ call plug#end()
 filetype plugin on
 
 "" Indentation
-" Set tabstop/shift width to 2 columns, and map this to <Tab>
-set tabstop=2 shiftwidth=2 expandtab
+set smartindent
+" Use spaces instead of hard tabs
+set expandtab
+" Set soft tab to 2 spaces
+set softtabstop=2 tabstop=2
+set shiftwidth=2 
 " Prevent comments from losing indent
 inoremap # X#
 " Filetype-based indentation
@@ -131,8 +134,8 @@ set foldlevel=99
 " Show relative line numbers
 set relativenumber
 set number
-" Text width (for wrapping) = 74
-set tw=74
+" Text width (for wrapping) = 80
+set tw=80
 
 "" vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:

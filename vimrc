@@ -19,16 +19,26 @@ Plug 'https://github.com/lervag/vimtex.git'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/unite.vim'
-Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/Shougo/neoyank.vim'
+Plug 'https://github.com/Shougo/neomru.vim'
+Plug 'https://github.com/Valloric/YouCompleteMe.git'
+Plug 'https://github.com/mattn/gist-vim.git'
+Plug 'https://github.com/mattn/webapi-vim.git'
 call plug#end()
+" Per-filetype plugins
+filetype plugin on
 
 "" Indentation
-" Set tabstop/shift width to 2 columns, and map this to <Tab>
-set tabstop=2 shiftwidth=2 expandtab
+set smartindent
+" Use spaces instead of hard tabs
+set expandtab
+" Set soft tab to 2 spaces
+set softtabstop=2 tabstop=2
+set shiftwidth=2 
 " Prevent comments from losing indent
 inoremap # X#
 " Filetype-based indentation
-filetype plugin on
 filetype indent on
 " Highlight indentation levels (via vim-indent-guides)
 let g:indent_guides_start_level = 2
@@ -36,8 +46,10 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 "" Leader
-" Map leader to comma
+" Map Leader to comma
 let mapleader=","
+" Map localleader to backslash
+let maplocalleader = "\\"
 
 "" Search
 " Jump to matches as a search string is typed
@@ -60,20 +72,20 @@ colorscheme apprentice
 
 "" Markdown
 " Recognise .md as markdown
-au BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 "" Perl
 " Perl skeleton
-au BufNewFile *.pl 0r ~/.vim/perl.skel
+autocmd BufNewFile *.pl 0r ~/.vim/perl.skel
 
 "" Shell
 " Shell skeleton
-au BufNewFile *.sh 0r ~/.vim/shell.skel
+autocmd BufNewFile *.sh 0r ~/.vim/shell.skel
 
 "" delimitMate
 " Don't match < in .Rmd
-au FileType rmd let b:delimitMate_matchpairs = "(:),[:],{:}"
-au FileType rmd let b:delimitMate_quotes = "\" '"
+autocmd FileType rmd let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType rmd let b:delimitMate_quotes = "\" '"
 
 "" Tab completion
 "" Using supertab plugin
@@ -84,11 +96,14 @@ let g:SuperTabDefaultCompletionType = "context"
 " Don't scan through included files (takes a very long time)
 set complete-=i
 
-"" easymotion
-" Require only single leader
-map <Leader> <Plug>(easymotion-prefix)
-" Bidirectional search
+"" vim-easymotion
+nmap <Leader> <Plug>(easymotion-prefix)
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+" Minimal keybinding for 'jump anywhere'
 nmap s <Plug>(easymotion-s)
+" Case-insensitive
+let g:EasyMotion_smartcase = 1
 
 "" vim-commentary
 " Filetype-specific comment strings
@@ -103,7 +118,7 @@ set scrolloff=2
 nnoremap Q <nop>
 " Jump to last position when reopening file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 endif
 " Allow backspacing past insertion point
 set backspace=indent,eol,start
@@ -116,8 +131,13 @@ set exrc
 set secure
 " All folds open on file open
 set foldlevel=99
+" Show relative line numbers
+set relativenumber
+set number
+" Text width (for wrapping) = 80
+set tw=80
 
-"" Vim-R-plugin
+"" vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
@@ -131,9 +151,11 @@ let vimrplugin_rnowebchunk = 0
 let vimrplugin_tmux_title = "automatic"
 " Don't show R documentation in vim
 let vimrplugin_vimpager = "no"
+" Mapping to add a magrittr pipe to the end of a line
+nnoremap <Leader>p A<space>%>%<esc>
 
 "" Persistent undo
-call system('mkdir ' . $HOME . "/.vimundo")
+call system('mkdir -p' . $HOME . "/.vimundo")
 set undodir=$HOME/.vimundo
 set undofile
 
@@ -143,8 +165,11 @@ set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
-" Easy ':Unite file buffer' invocation
-nnoremap <silent> <Leader>qq :Unite buffer file<CR>
+" Mapping to invoke the 'buffer', 'most recently used' and 'file' sources
+nnoremap <silent> <Leader>q :Unite -no-split buffer file_mru file<CR>
+" Mapping to invoke the yank history source
+let g:unite_source_history_yank_enable = 1
+nnoremap <silent> <Leader>y :Unite -no-split history/yank<CR>
 " Automatically write buffers before hiding, to prevent nagging reminders
 set autowrite
 
@@ -162,7 +187,15 @@ let g:notes_tab_indents = 0
 let g:notes_word_boundaries = 1
 
 "" vim-argwrap
-" Set invocation to <leader>,
-nnoremap <silent> <leader>, :ArgWrap<CR>
+" Set invocation to <Leader>,
+nnoremap <silent> <Leader>, :ArgWrap<CR>
 " Wrap closing brace to newline
 let g:argwrap_wrap_closing_brace = 1
+
+"" Mappings to edit and source .vimrc
+nnoremap <Leader>ve :split $MYVIMRC<cr>
+nnoremap <Leader>vs :source $MYVIMRC<cr>
+
+"" Open splits below and right by default
+set splitbelow
+set splitright

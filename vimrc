@@ -25,6 +25,10 @@ Plug 'https://github.com/Shougo/neomru.vim'
 Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/mattn/gist-vim.git'
 Plug 'https://github.com/mattn/webapi-vim.git'
+Plug 'https://github.com/ldong/vim_loremipsum'
+Plug 'https://github.com/mhinz/vim-startify'
+Plug 'https://github.com/kana/vim-operator-user'
+Plug 'https://github.com/haya14busa/vim-operator-flashy'
 call plug#end()
 " Per-filetype plugins
 filetype plugin on
@@ -199,3 +203,8 @@ nnoremap <Leader>vs :source $MYVIMRC<cr>
 "" Open splits below and right by default
 set splitbelow
 set splitright
+
+"" vim-operator-flashy
+" Briefly highlights yanked text
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$

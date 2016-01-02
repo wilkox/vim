@@ -117,3 +117,6 @@ endif
 iabbrev << <-
 iabbrev >> %>%
 inoremap <c-l> <esc>A
+
+"" Start R in vanilla mode
+let vimrplugin_r_args = "--vanilla"

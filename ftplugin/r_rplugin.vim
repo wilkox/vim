@@ -118,5 +118,5 @@ iabbrev << <-
 iabbrev >> %>%
 inoremap <c-l> <esc>A
 
-"" Start R in vanilla mode
-let vimrplugin_r_args = "--vanilla"
+"" Set libraries to load on start
+let vimrplugin_start_libs = "base,stats,vimcom,colorout,setwidth,wilkoxmisc"

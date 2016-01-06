@@ -34,7 +34,9 @@ call plug#end()
 filetype plugin on
 
 "" Indentation
-set smartindent
+"" smartindent is the devil! Don't set smartindent!
+" Filetype-based indentation
+filetype indent on
 " Use spaces instead of hard tabs
 set expandtab
 " Set soft tab to 2 spaces
@@ -42,8 +44,6 @@ set softtabstop=2 tabstop=2
 set shiftwidth=2 
 " Prevent comments from losing indent
 inoremap # X#
-" Filetype-based indentation
-filetype indent on
 " Highlight indentation levels (via vim-indent-guides)
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -140,6 +140,8 @@ set relativenumber
 set number
 " Text width (for wrapping) = 80
 set tw=80
+" Single space between sentences when wrapping
+set nojoinspaces
 
 "" vim-R-plugin
 " Press the space bar to send lines (in Normal mode) and selections to R:

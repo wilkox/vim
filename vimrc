@@ -26,7 +26,6 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/mattn/gist-vim.git'
 Plug 'https://github.com/mattn/webapi-vim.git'
 Plug 'https://github.com/ldong/vim_loremipsum'
-Plug 'https://github.com/mhinz/vim-startify'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/haya14busa/vim-operator-flashy'
 call plug#end()

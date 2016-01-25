@@ -201,6 +201,9 @@ let g:argwrap_wrap_closing_brace = 1
 nnoremap <Leader>ve :split $MYVIMRC<cr>
 nnoremap <Leader>vs :source $MYVIMRC<cr>
 
+"" Mappings to run Make
+nnoremap <Leader>ml :Make -L<cr>
+
 "" Open splits below and right by default
 set splitbelow
 set splitright

@@ -28,6 +28,7 @@ Plug 'https://github.com/mattn/webapi-vim.git'
 Plug 'https://github.com/ldong/vim_loremipsum'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/haya14busa/vim-operator-flashy'
+Plug 'https://github.com/danro/rename.vim'
 call plug#end()
 " Per-filetype plugins
 filetype plugin on
@@ -201,8 +202,12 @@ let g:argwrap_wrap_closing_brace = 1
 nnoremap <Leader>ve :split $MYVIMRC<cr>
 nnoremap <Leader>vs :source $MYVIMRC<cr>
 
+"" Mappings to reduce RSI
+nnoremap ' :
+
 "" Mappings to run Make
-nnoremap <Leader>ml :Make -L<cr>
+nnoremap <Leader>ml :w <bar> Make -L<cr>
+nnoremap <Leader>mnl :w <bar> new <bar> setlocal buftype=nofile <bar> 0read !make -nL<cr>
 
 "" Open splits below and right by default
 set splitbelow

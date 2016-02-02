@@ -11,7 +11,7 @@ Plug 'https://github.com/easymotion/vim-easymotion.git'
 Plug 'https://github.com/kana/vim-fakeclip.git'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 Plug 'https://github.com/xolox/vim-misc.git'
-Plug 'https://github.com/xolox/vim-notes.git'
+Plug 'https://github.com/wilkox/vim-notes.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
 Plug 'https://github.com/mhinz/vim-tmuxify.git'
@@ -217,3 +217,7 @@ set splitright
 " Briefly highlights yanked text
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
+
+"" YouCompleteMe
+" Blacklisted filetypes
+let g:ycm_filetype_blacklist = {'tagbar' : 1, 'qf' : 1, 'unite' : 1, 'text' : 1, 'vimwiki' : 1, 'pandoc' : 1, 'infolog' : 1, 'mail' : 1}

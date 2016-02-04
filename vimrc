@@ -221,3 +221,10 @@ nmap Y <Plug>(operator-flashy)$
 "" YouCompleteMe
 " Blacklisted filetypes
 let g:ycm_filetype_blacklist = {'tagbar' : 1, 'qf' : 1, 'unite' : 1, 'text' : 1, 'vimwiki' : 1, 'pandoc' : 1, 'infolog' : 1, 'mail' : 1}
+
+"" Uni study
+" Function to generate Anki flashcards from notes
+function! MakeAnkiFlashCards ()
+  ! anki_from_notes.pl "%:p"
+endfunction
+nnoremap <Leader>fc :call MakeAnkiFlashCards()<cr>

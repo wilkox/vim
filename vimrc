@@ -192,7 +192,7 @@ let g:notes_tab_indents = 0
 " Respect word boundaries
 let g:notes_word_boundaries = 1
 " Highlight TODOs more obviously
-" highlight link notesTodo DiffText
+highlight link notesTodo DiffText
 
 "" vim-argwrap
 " Set invocation to <Leader>,

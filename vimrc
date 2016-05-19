@@ -22,7 +22,7 @@ Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
 Plug 'https://github.com/Shougo/neomru.vim'
-Plug 'https://github.com/Valloric/YouCompleteMe.git'
+" Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/mattn/gist-vim.git'
 Plug 'https://github.com/mattn/webapi-vim.git'
 Plug 'https://github.com/ldong/vim_loremipsum'
@@ -193,6 +193,8 @@ let g:notes_tab_indents = 0
 let g:notes_word_boundaries = 1
 " Highlight TODOs more obviously
 highlight link notesTodo DiffText
+" Highlight learning objectives more obviously
+highlight notesItalic ctermfg=black ctermbg=darkcyan
 
 "" vim-argwrap
 " Set invocation to <Leader>,
@@ -230,3 +232,6 @@ function! MakeAnkiFlashCards ()
   ! anki_from_notes.pl "%:p"
 endfunction
 nnoremap <Leader>fc :call MakeAnkiFlashCards()<cr>
+
+"" Insert timestamp
+iab <expr> dts strftime("%F")

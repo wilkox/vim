@@ -29,6 +29,7 @@ Plug 'https://github.com/ldong/vim_loremipsum'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/haya14busa/vim-operator-flashy'
 Plug 'https://github.com/danro/rename.vim'
+Plug 'https://github.com/timakro/vim-searchant'
 call plug#end()
 " Per-filetype plugins
 filetype plugin on
@@ -61,7 +62,9 @@ set incsearch
 " Highlight search matches
 set hlsearch
 " Map <Leader>/ (\/) to clearing search highlight
-nnoremap <silent> <Leader>/ :nohlsearch<CR>
+let g:searchant_map_stop = 0 "for vim-searchant
+" nnoremap <silent> <Leader>/ <Plug>SearchantStop
+nmap <Leader>/ <Plug>SearchantStop
 " Map "//" to search for visually selected text
 vnoremap // y/<C-R>"<CR>
 

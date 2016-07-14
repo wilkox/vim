@@ -211,6 +211,7 @@ nnoremap <Leader>vs :source $MYVIMRC<cr>
 
 "" Mappings to reduce RSI
 nnoremap ' :
+vnoremap ' :
 
 "" Mappings to run Make
 nnoremap <Leader>ml :w <bar> Make -L<cr>

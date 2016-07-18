@@ -30,6 +30,8 @@ Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/haya14busa/vim-operator-flashy'
 Plug 'https://github.com/danro/rename.vim'
 Plug 'https://github.com/timakro/vim-searchant'
+Plug 'https://github.com/naquad/unite-digraphs'
+Plug 'https://github.com/gavinbeatty/dragvisuals.vim'
 call plug#end()
 " Per-filetype plugins
 filetype plugin on
@@ -174,8 +176,8 @@ set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
-" Mapping to invoke the 'buffer', 'most recently used' and 'file' sources
-nnoremap <silent> <Leader>q :Unite -no-split buffer file_mru file<CR>
+" Mapping to invoke my chosen sources
+nnoremap <silent> <Leader>q :Unite -no-split buffer file_mru file digraphs<CR>
 " Mapping to invoke the yank history source
 let g:unite_source_history_yank_enable = 1
 nnoremap <silent> <Leader>y :Unite -no-split history/yank<CR>
@@ -236,6 +238,18 @@ function! MakeAnkiFlashCards ()
   ! anki_from_notes.pl "%:p"
 endfunction
 nnoremap <Leader>fc :call MakeAnkiFlashCards()<cr>
-
-"" Insert timestamp
+" Insert timestamp
 iab <expr> dts strftime("%F")
+
+"" Show bad characters
+" Reveals tabs, non-breaking spaces and trailing whitespace
+" From Damien Conway's 'More instantly better vim'
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
+"" dragvisuals
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()

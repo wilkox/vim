@@ -143,8 +143,8 @@ set nojoinspaces
 
 "" Nvim-R
 " Press the space bar to send lines (in Normal mode) and selections to R:
-" vmap <Space> <Plug>RDSendSelection
-" nmap <Space> <Plug>RDSendLine
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
 let R_tmux_split = 1
 let R_vsplit = 1

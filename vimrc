@@ -7,7 +7,6 @@ Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-dispatch.git'
-Plug 'https://github.com/easymotion/vim-easymotion.git'
 Plug 'https://github.com/kana/vim-fakeclip.git'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 Plug 'https://github.com/xolox/vim-misc.git'
@@ -22,7 +21,6 @@ Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
 Plug 'https://github.com/Shougo/neomru.vim'
-" Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/mattn/gist-vim.git'
 Plug 'https://github.com/mattn/webapi-vim.git'
 Plug 'https://github.com/ldong/vim_loremipsum'
@@ -32,7 +30,11 @@ Plug 'https://github.com/danro/rename.vim'
 Plug 'https://github.com/timakro/vim-searchant'
 Plug 'https://github.com/naquad/unite-digraphs'
 Plug 'https://github.com/gavinbeatty/dragvisuals.vim'
+Plug 'https://github.com/justinmk/vim-sneak'
+Plug 'https://github.com/reedes/vim-pencil'
+Plug 'https://github.com/jalvesaq/Nvim-R'
 call plug#end()
+
 " Per-filetype plugins
 filetype plugin on
 
@@ -105,15 +107,6 @@ let g:SuperTabDefaultCompletionType = "context"
 " Don't scan through included files (takes a very long time)
 set complete-=i
 
-"" vim-easymotion
-nmap <Leader> <Plug>(easymotion-prefix)
-" Disable default mappings
-let g:EasyMotion_do_mapping = 0
-" Minimal keybinding for 'jump anywhere'
-nmap s <Plug>(easymotion-s)
-" Case-insensitive
-let g:EasyMotion_smartcase = 1
-
 "" vim-commentary
 " Filetype-specific comment strings
 autocmd FileType perl set commentstring=#\ %s
@@ -148,22 +141,23 @@ set tw=80
 " Single space between sentences when wrapping
 set nojoinspaces
 
-"" vim-R-plugin
+"" Nvim-R
 " Press the space bar to send lines (in Normal mode) and selections to R:
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendLine
+" vmap <Space> <Plug>RDSendSelection
+" nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
-let vimrplugin_vsplit = 1
+let R_tmux_split = 1
+let R_vsplit = 1
 " Disable mapping of "_" to " -> "
-let vimrplugin_assign = 0
+let R_assign = 0
 " Disable matching of <
-let vimrplugin_rnowebchunk = 0
+let R_rnowebchunk = 0
 " Don't clobber the tmux window title
-let vimrplugin_tmux_title = "automatic"
+let R_tmux_title = "automatic"
 " Don't show R documentation in vim
-let vimrplugin_vimpager = "no"
-" Mapping to add a magrittr pipe to the end of a line
-nnoremap <Leader>p A<space>%>%<esc>
+let R_vimpager = "no"
+" Use my own tmux config
+let R_notmuxcong = 1
 
 "" Persistent undo
 call system('mkdir -p' . $HOME . "/.vimundo")
@@ -240,6 +234,8 @@ endfunction
 nnoremap <Leader>fc :call MakeAnkiFlashCards()<cr>
 " Insert timestamp
 iab <expr> dts strftime("%F")
+" Run 'clean learning objectives' in visual mode
+vnoremap <Leader>clo :'<,'>! clean_learning_objectives.pl<cr>
 
 "" Show bad characters
 " Reveals tabs, non-breaking spaces and trailing whitespace
@@ -253,3 +249,10 @@ vmap  <expr>  <RIGHT>  DVB_Drag('right')
 vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
+
+"" vim-pencil
+" Set filetypes with which to use vim-pencil
+augroup pencil
+  autocmd!
+  autocmd FileType rmd call pencil#init({'wrap': 'hard'})
+augroup END

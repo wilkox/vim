@@ -19,7 +19,7 @@ while (<>) {
   # Remove underscores
   $_ =~ s/_//g;
 
-  # Return, wrapped in underscores
-  print "_$_\_\n\n";
+  # Return prefixed with markdown heading
+  print "#$_\n\n";
 
 }

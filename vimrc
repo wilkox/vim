@@ -10,7 +10,7 @@ Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/kana/vim-fakeclip.git'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 Plug 'https://github.com/xolox/vim-misc.git'
-Plug 'https://github.com/wilkox/vim-notes.git'
+Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
 Plug 'https://github.com/mhinz/vim-tmuxify.git'
@@ -170,7 +170,7 @@ set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
 
 "" Unite
-" Mapping to invoke my chosen sources
+" Mapping to invoke my chosen sources and invoke insert mode
 nnoremap <silent> <Leader>q :Unite -no-split buffer file_mru file digraphs<CR>
 " Mapping to invoke the yank history source
 let g:unite_source_history_yank_enable = 1
@@ -190,9 +190,17 @@ let g:notes_suffix = '.md'
 let g:notes_tab_indents = 0
 " Respect word boundaries
 let g:notes_word_boundaries = 1
+" Overwrite replacement of dashed lists with Unicode bullets
+" There is an option for this but it doesn't work
+" TODO submit this as a pull request at some point
+function! xolox#notes#get_bullet(chr)
+  return '-'
+endfunction
 " Highlight TODOs more obviously
 highlight link notesTodo DiffText
-" Highlight learning objectives more obviously
+" Highlight learning objectives and conceal markdown heading sigil
+highlight notesAtxHeading ctermfg=black ctermbg=darkcyan
+" TODO italics
 highlight notesItalic ctermfg=black ctermbg=darkcyan
 
 "" vim-argwrap

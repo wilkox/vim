@@ -198,10 +198,13 @@ function! xolox#notes#get_bullet(chr)
 endfunction
 " Highlight TODOs more obviously
 highlight link notesTodo DiffText
-" Highlight learning objectives and conceal markdown heading sigil
+" Highlight learning objectives
 highlight notesAtxHeading ctermfg=black ctermbg=darkcyan
 " TODO italics
 highlight notesItalic ctermfg=black ctermbg=darkcyan
+" Don't highlight quoted text
+highlight link notesSingleQuoted normal
+highlight link notesDoubleQuoted normal
 " Soft wraps in notes
 autocmd FileType notes set wrap linebreak nolist textwidth=0 wrapmargin=0
 

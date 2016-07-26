@@ -202,6 +202,8 @@ highlight link notesTodo DiffText
 highlight notesAtxHeading ctermfg=black ctermbg=darkcyan
 " TODO italics
 highlight notesItalic ctermfg=black ctermbg=darkcyan
+" Soft wraps in notes
+autocmd FileType notes set wrap linebreak nolist textwidth=0 wrapmargin=0
 
 "" vim-argwrap
 " Set invocation to <Leader>,

@@ -273,3 +273,8 @@ augroup pencil
   autocmd!
   autocmd FileType rmd call pencil#init({'wrap': 'hard'})
 augroup END
+
+"" link_slides
+source ~/vim/scripts/link_slides.vim
+nnoremap <Leader>ls :call link_slides#link_slides()<cr>
+nnoremap <Leader>os :call link_slides#open_slides()<cr>

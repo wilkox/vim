@@ -216,7 +216,7 @@ nnoremap <silent> <Leader>, :ArgWrap<CR>
 let g:argwrap_wrap_closing_brace = 1
 
 "" Mappings to edit and source .vimrc
-nnoremap <Leader>ve :split $MYVIMRC<cr>
+nnoremap <Leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <Leader>vs :source $MYVIMRC<cr>
 
 "" Mappings to reduce RSI
@@ -227,9 +227,12 @@ vnoremap ' :
 nnoremap <Leader>ml :w <bar> Make -L<cr>
 nnoremap <Leader>mnl :w <bar> new <bar> setlocal buftype=nofile <bar> 0read !make -nL<cr>
 
-"" Open splits below and right by default
+"" Splits
+" Open splits below and right by default
 set splitbelow
 set splitright
+" Always open help files in a rightward vertical split
+autocmd FileType help,* wincmd L
 
 "" vim-operator-flashy
 " Briefly highlights yanked text

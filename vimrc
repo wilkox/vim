@@ -232,7 +232,7 @@ nnoremap <Leader>mnl :w <bar> new <bar> setlocal buftype=nofile <bar> 0read !mak
 set splitbelow
 set splitright
 " Always open help files in a rightward vertical split
-autocmd FileType help,* wincmd L
+" autocmd FileType help,* wincmd L
 
 "" vim-operator-flashy
 " Briefly highlights yanked text

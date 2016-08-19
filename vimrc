@@ -34,6 +34,7 @@ Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/reedes/vim-pencil'
 Plug 'https://github.com/jalvesaq/Nvim-R'
 Plug 'https://github.com/tpope/vim-speeddating'
+Plug 'https://github.com/vim-perl/vim-perl'
 call plug#end()
 
 " Per-filetype plugins

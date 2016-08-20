@@ -157,9 +157,12 @@ let R_rnowebchunk = 0
 " Don't clobber the tmux window title
 let R_tmux_title = "automatic"
 " Don't show R documentation in vim
-let R_vimpager = "no"
+let R_nvimpager = "no"
 " Use my own tmux config
 let R_notmuxcong = 1
+" R-friendly abbreviations
+iab >> %>%
+iab << <-
 
 "" Persistent undo
 call system('mkdir -p' . $HOME . "/.vimundo")
@@ -217,7 +220,7 @@ nnoremap <silent> <Leader>, :ArgWrap<CR>
 let g:argwrap_wrap_closing_brace = 1
 
 "" Mappings to edit and source .vimrc
-nnoremap <Leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <Leader>ve :split $MYVIMRC<cr>
 nnoremap <Leader>vs :source $MYVIMRC<cr>
 
 "" Mappings to reduce RSI

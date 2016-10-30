@@ -7,7 +7,6 @@ Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-dispatch.git'
-Plug 'https://github.com/kana/vim-fakeclip.git'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-notes.git'
@@ -183,9 +182,6 @@ nnoremap <silent> <Leader>y :Unite -no-split history/yank<CR>
 " Automatically write buffers before hiding, to prevent nagging reminders
 set autowrite
 
-"" Synchronise unnamed register with clipboard
-set clipboard^=unnamed
-
 "" vim-notes
 " Set notes directory
 let g:notes_directories = ['~/notes']
@@ -282,3 +278,6 @@ augroup END
 source ~/vim/scripts/link_slides.vim
 nnoremap <Leader>ls :call link_slides#link_slides()<cr>
 nnoremap <Leader>os :call link_slides#open_slides()<cr>
+
+"" Synchronise unnamed register with clipboard
+set clipboard^=unnamed

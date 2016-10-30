@@ -10,12 +10,12 @@ while (<>) {
   # Remove bullets
   $_ =~ s/•//g;
 
-  # Remove trailing periods
-  $_ =~ s/\.$//g;
-  
   # Remove trailing whitespace
   $_ =~ s/\s+$//g;
 
+  # Remove trailing periods
+  $_ =~ s/\.$//g;
+  
   # Remove underscores
   $_ =~ s/_//g;
 

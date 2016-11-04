@@ -172,6 +172,7 @@ set undofile
 set spell 
 set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
+nnoremap zl 1z=
 
 "" Unite
 " Mapping to invoke my chosen sources and invoke insert mode

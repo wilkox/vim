@@ -172,6 +172,8 @@ set undofile
 set spell 
 set spelllang=en_au
 set spellfile=$HOME/vim/spellfile.add
+" Don't highlight capitalisation
+set spellcapcheck=
 nnoremap zl 1z=
 
 "" Unite

@@ -1,6 +1,8 @@
 "" Plugins with vim-plug
 " After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'mtth/scratch.vim'
 Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/ervandew/supertab.git'

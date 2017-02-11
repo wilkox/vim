@@ -59,7 +59,7 @@ while (readline IN) {
     # Add to output, including reverse, unless the definition is an acronym in
     # which case no reverse card is created
     say BASIC "Define: $card[0]\t$card[1]";
-    say BASIC "What term is defined ‘$card[1]’?\t$card[0]" unless $card[0] =~ /^[A-Z0-9\-]/;
+    say BASIC "What term is defined ‘$card[1]’?\t$card[0]" unless $card[0] =~ /^[A-Z0-9\-]$/;
 
   # If the bullet contains square brackets, it's in 'cloze' format
   } elsif (/\[/) {

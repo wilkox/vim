@@ -32,7 +32,6 @@ Plug 'https://github.com/timakro/vim-searchant'
 Plug 'https://github.com/naquad/unite-digraphs'
 Plug 'https://github.com/gavinbeatty/dragvisuals.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
-Plug 'https://github.com/reedes/vim-pencil'
 Plug 'https://github.com/jalvesaq/Nvim-R'
 Plug 'https://github.com/tpope/vim-speeddating'
 Plug 'https://github.com/vim-perl/vim-perl'
@@ -150,7 +149,7 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 " Vertical split for R pane
 let R_tmux_split = 1
-let R_vsplit = 1
+let R_min_editor_width = 70
 " Disable mapping of "_" to " -> "
 let R_assign = 0
 " Disable matching of <
@@ -271,13 +270,6 @@ vmap  <expr>  <RIGHT>  DVB_Drag('right')
 vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
-
-"" vim-pencil
-" Set filetypes with which to use vim-pencil
-augroup pencil
-  autocmd!
-  autocmd FileType rmd call pencil#init({'wrap': 'hard'})
-augroup END
 
 "" link_slides
 source ~/vim/scripts/link_slides.vim

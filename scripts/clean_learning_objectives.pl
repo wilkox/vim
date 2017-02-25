@@ -15,11 +15,13 @@ while (<>) {
 
   # Remove trailing periods
   $_ =~ s/\.$//g;
-  
+
+  # Remove trailing semicolons
+  $_ =~ s/;$//g;
+
   # Remove underscores
   $_ =~ s/_//g;
 
   # Return prefixed with markdown heading
   print "#$_\n\n";
-
 }

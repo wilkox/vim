@@ -5,6 +5,7 @@ my $notesFile = shift;
 die unless open(IN, "<", $notesFile);
 die unless open(BASIC, ">", "/Users/wilkox/tmp/basic.csv");
 die unless open(CLOZE, ">", "/Users/wilkox/tmp/cloze.csv");
+die unless open(DEFINITION, ">", "/Users/wilkox/tmp/definition.csv");
 while (readline IN) {
 
   # Catch tags
@@ -14,6 +15,7 @@ while (readline IN) {
     my @tags = split(/\s+/, $_);
     say BASIC "tags: @tags";
     say CLOZE "tags: @tags";
+    say DEFINITION "tags: @tags";
   }
 
   # Only bullets become flash cards
@@ -56,10 +58,8 @@ while (readline IN) {
 
     $card[1] =~ s/^\s//;
 
-    # Add to output, including reverse, unless the definition is an acronym in
-    # which case no reverse card is created
-    say BASIC "Define: $card[0]\t$card[1]";
-    say BASIC "What term is defined ‘$card[1]’?\t$card[0]" unless $card[0] =~ /^[A-Z0-9\-]$/;
+    # Add to output
+    say DEFINITION "$card[0]\t$card[1]";
 
   # If the bullet contains square brackets, it's in 'cloze' format
   } elsif (/\[/) {
@@ -80,5 +80,6 @@ while (readline IN) {
 close IN;
 close BASIC;
 close CLOSE;
+close DEFINITION;
 
 print "Flashcards made";

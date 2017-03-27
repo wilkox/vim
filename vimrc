@@ -2,39 +2,31 @@
 " After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'mtth/scratch.vim'
-Plug 'https://github.com/mileszs/ack.vim.git'
-Plug 'https://github.com/Raimondi/delimitMate.git'
-Plug 'https://github.com/ervandew/supertab.git'
-Plug 'https://github.com/tpope/vim-abolish.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/tpope/vim-dispatch.git'
-Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
-Plug 'https://github.com/xolox/vim-misc.git'
-Plug 'https://github.com/xolox/vim-notes.git'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
-Plug 'https://github.com/mhinz/vim-tmuxify.git'
-Plug 'https://github.com/lervag/vimtex.git'
-Plug 'https://github.com/FooSoft/vim-argwrap.git'
-Plug 'https://github.com/godlygeek/tabular.git'
-Plug 'https://github.com/Shougo/unite.vim'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/Shougo/neoyank.vim'
-Plug 'https://github.com/Shougo/neomru.vim'
-Plug 'https://github.com/mattn/gist-vim.git'
-Plug 'https://github.com/mattn/webapi-vim.git'
-Plug 'https://github.com/ldong/vim_loremipsum'
-Plug 'https://github.com/kana/vim-operator-user'
-Plug 'https://github.com/haya14busa/vim-operator-flashy'
-Plug 'https://github.com/danro/rename.vim'
-Plug 'https://github.com/timakro/vim-searchant'
-Plug 'https://github.com/naquad/unite-digraphs'
-Plug 'https://github.com/gavinbeatty/dragvisuals.vim'
-Plug 'https://github.com/justinmk/vim-sneak'
-Plug 'https://github.com/jalvesaq/Nvim-R'
-Plug 'https://github.com/tpope/vim-speeddating'
-Plug 'https://github.com/vim-perl/vim-perl'
+Plug 'Raimondi/delimitMate'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'FooSoft/vim-argwrap'
+Plug 'godlygeek/tabular'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neoyank.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+" Plug 'kana/vim-operator-user'
+Plug 'haya14busa/vim-operator-flashy'
+Plug 'danro/rename.vim'
+Plug 'timakro/vim-searchant'
+Plug 'naquad/unite-digraphs'
+Plug 'justinmk/vim-sneak'
+Plug 'jalvesaq/Nvim-R'
+Plug 'tpope/vim-speeddating'
 call plug#end()
 
 " Per-filetype plugins
@@ -177,7 +169,7 @@ set spellfile=$HOME/vim/spellfile.add
 set spellcapcheck=
 nnoremap zl 1z=
 
-"" Unite
+"" unite
 " Mapping to invoke my chosen sources and invoke insert mode
 nnoremap <silent> <Leader>q :Unite -no-split buffer file_mru file digraphs<CR>
 " Mapping to invoke the yank history source

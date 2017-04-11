@@ -134,6 +134,8 @@ set number
 set tw=80
 " Single space between sentences when wrapping
 set nojoinspaces
+" Reflow paragraphs with Q
+noremap Q gqap
 
 "" Nvim-R
 " Press the space bar to send lines (in Normal mode) and selections to R:
@@ -270,7 +272,3 @@ nnoremap <Leader>os :call link_slides#open_slides()<cr>
 
 "" Synchronise unnamed register with clipboard
 set clipboard^=unnamed
-
-"" Latex
-" Automatically reflow paragraphs
-autocmd FileType tex set fo+=a

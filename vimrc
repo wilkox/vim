@@ -1,9 +1,11 @@
 "" Plugins with vim-plug
 " After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -272,3 +274,16 @@ nnoremap <Leader>os :call link_slides#open_slides()<cr>
 
 "" Synchronise unnamed register with clipboard
 set clipboard^=unnamed
+
+"" vim-pandoc
+"" NOTE TO SELF: for making with default arguments, see :PandocTemplate (my
+"" template is saved as #make)
+" Enabled and disabled modules
+" let g:pandoc#modules#enabled = []
+" let g:pandoc#modules#disabled = ["folding"]
+" Autoformat with hard breaks
+let g:pandoc#formatting#mode = "hA"
+" Allow folding of YAML front matter
+let g:pandoc#folding#fold_yaml = 1
+" Styles not to use conceal with for vim-pandoc-syntax
+let g:pandoc#syntax#conceal#blacklist = ["subscript", "superscript"]

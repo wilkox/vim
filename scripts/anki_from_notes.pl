@@ -23,11 +23,17 @@ while (readline IN) {
 
   # Strip bullets
   s/^-\s//;
-  
+
   # Strip newlines
   chomp;
 
   # Note order of precedence: question mark > colon > square brackets
+
+  # Catch images and replace with html img links
+  if (/\!\[([^\]]+)\]/) {
+    my $new = "<p><img src='/Users/wilkox/study_images/$1.png' alt='$1'></p>";
+    $_ =~ s/\Q$&/$new/;
+  }
 
   # If the bullet contains a question mark, it's in 'question' format
   if (/\?/) {

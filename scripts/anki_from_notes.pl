@@ -28,8 +28,6 @@ while (readline IN) {
   # Strip newlines
   chomp;
 
-  # Note order of precedence: question mark > colon > square brackets
-
   # Catch images and replace with html img links
   # Check that media folder is still in the correct place
   my $mediaFolder = '/Users/wilkox/Library/Application Support/Anki2/Medicine/collection.media';
@@ -50,6 +48,10 @@ while (readline IN) {
     my $imgTag = "<p><img src='$imgNewPath' alt='$img'></p>";
     $_ =~ s/\Q$match/$imgTag/;
   }
+
+  # Replace Markdown-style italics and bold with HTML tags
+  s/\*\*([^\*]+)\*\*/<b>$1<\/b>/g;
+  s/\*([^\*]+)\*/<i>$1<\/i>/g;
 
   # If the bullet contains a question mark, it's in 'question' format
   if (/\?/) {

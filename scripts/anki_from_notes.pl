@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use File::Copy;
 
 my $notesFile = shift;
 
@@ -30,9 +31,24 @@ while (readline IN) {
   # Note order of precedence: question mark > colon > square brackets
 
   # Catch images and replace with html img links
+  # Check that media folder is still in the correct place
+  my $mediaFolder = '/Users/wilkox/Library/Application Support/Anki2/Medicine/collection.media';
+  die "Anki media folder could no longer be found at $mediaFolder" unless -d $mediaFolder;
   if (/\!\[([^\]]+)\]/) {
-    my $new = "<p><img src='/Users/wilkox/study_images/$1.png' alt='$1'></p>";
-    $_ =~ s/\Q$&/$new/;
+    my $match = $&;
+    my $img = $1;
+
+    # Check image exists
+    my $imgOldPath = "/Users/wilkox/Documents/study_images/$img.png";
+    die "Could not find image at $imgOldPath" unless -e $imgOldPath;
+
+    # Copy image to Anki media folder
+    my $imgNewPath = "$mediaFolder/$img.png";
+    copy($imgOldPath, $imgNewPath) or die "Copy failed";
+
+    # Put new path in img tag
+    my $imgTag = "<p><img src='$imgNewPath' alt='$img'></p>";
+    $_ =~ s/\Q$match/$imgTag/;
   }
 
   # If the bullet contains a question mark, it's in 'question' format

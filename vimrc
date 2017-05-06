@@ -1,11 +1,11 @@
 "" Plugins with vim-plug
 " After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
+Plug 'ervandew/supertab'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'Raimondi/delimitMate'
-" Plug 'ervandew/supertab'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'

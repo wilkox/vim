@@ -2,8 +2,8 @@
 " After adding a plugin, run :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'Raimondi/delimitMate'
@@ -18,7 +18,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'FooSoft/vim-argwrap'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/unite.vim'
-" Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
@@ -259,13 +258,6 @@ vnoremap <Leader>clo :'<,'>! clean_learning_objectives.pl<cr>
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
-"" dragvisuals
-vmap  <expr>  <LEFT>   DVB_Drag('left')
-vmap  <expr>  <RIGHT>  DVB_Drag('right')
-vmap  <expr>  <DOWN>   DVB_Drag('down')
-vmap  <expr>  <UP>     DVB_Drag('up')
-vmap  <expr>  D        DVB_Duplicate()
-
 "" link_slides
 source ~/vim/scripts/link_slides.vim
 nnoremap <Leader>ls :call link_slides#link_slides()<cr>
@@ -281,7 +273,9 @@ set clipboard^=unnamed
 " let g:pandoc#modules#enabled = []
 " let g:pandoc#modules#disabled = ["folding"]
 " Autoformat with hard breaks
-let g:pandoc#formatting#mode = "hA"
+" let g:pandoc#formatting#mode = "hA"
+let g:pandoc#formatting#mode = "h"
+" let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 " Allow folding of YAML front matter
 let g:pandoc#folding#fold_yaml = 1
 " Styles not to use conceal with for vim-pandoc-syntax
